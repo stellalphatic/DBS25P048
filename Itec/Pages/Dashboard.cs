@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Itec
 {
-    public partial class Dashboard : Form
+    public partial class EventsManage : Form
     {
-     
-        public Dashboard()
+
+        public EventsManage()
         {
             InitializeComponent();
         }
@@ -25,6 +25,11 @@ namespace Itec
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
         {
 
         }
