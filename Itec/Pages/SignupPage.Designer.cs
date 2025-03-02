@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label1 = new Label();
-            maskedTextBox1 = new MaskedTextBox();
-            label3 = new Label();
-            label4 = new Label();
-            maskedTextBox3 = new MaskedTextBox();
-            maskedTextBox4 = new MaskedTextBox();
             SignupBtn = new Button();
-            label2 = new Label();
+            maskedTextBox4 = new MaskedTextBox();
+            maskedTextBox3 = new MaskedTextBox();
             maskedTextBox2 = new MaskedTextBox();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            maskedTextBox1 = new MaskedTextBox();
+            label1 = new Label();
             panel2 = new Panel();
             label5 = new Label();
             panel1.SuspendLayout();
@@ -61,66 +61,6 @@
             panel1.Size = new Size(369, 290);
             panel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.ActiveCaptionText;
-            label1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(16, 27);
-            label1.Name = "label1";
-            label1.Size = new Size(103, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Username:";
-            // 
-            // maskedTextBox1
-            // 
-            maskedTextBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox1.Location = new Point(145, 27);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(144, 27);
-            maskedTextBox1.TabIndex = 1;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = SystemColors.ActiveCaptionText;
-            label3.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(16, 122);
-            label3.Name = "label3";
-            label3.Size = new Size(96, 25);
-            label3.TabIndex = 3;
-            label3.Text = "Password:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = SystemColors.ActiveCaptionText;
-            label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Transparent;
-            label4.Location = new Point(16, 170);
-            label4.Name = "label4";
-            label4.Size = new Size(54, 25);
-            label4.TabIndex = 4;
-            label4.Text = "Role:";
-            // 
-            // maskedTextBox3
-            // 
-            maskedTextBox3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox3.Location = new Point(145, 123);
-            maskedTextBox3.Name = "maskedTextBox3";
-            maskedTextBox3.Size = new Size(144, 27);
-            maskedTextBox3.TabIndex = 6;
-            // 
-            // maskedTextBox4
-            // 
-            maskedTextBox4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox4.Location = new Point(145, 171);
-            maskedTextBox4.Name = "maskedTextBox4";
-            maskedTextBox4.Size = new Size(144, 27);
-            maskedTextBox4.TabIndex = 7;
-            // 
             // SignupBtn
             // 
             SignupBtn.BackColor = SystemColors.MenuHighlight;
@@ -135,6 +75,54 @@
             SignupBtn.Text = "Signup";
             SignupBtn.UseVisualStyleBackColor = false;
             // 
+            // maskedTextBox4
+            // 
+            maskedTextBox4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBox4.Location = new Point(145, 171);
+            maskedTextBox4.Name = "maskedTextBox4";
+            maskedTextBox4.Size = new Size(144, 27);
+            maskedTextBox4.TabIndex = 7;
+            // 
+            // maskedTextBox3
+            // 
+            maskedTextBox3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBox3.Location = new Point(145, 123);
+            maskedTextBox3.Name = "maskedTextBox3";
+            maskedTextBox3.Size = new Size(144, 27);
+            maskedTextBox3.TabIndex = 6;
+            // 
+            // maskedTextBox2
+            // 
+            maskedTextBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBox2.Location = new Point(145, 73);
+            maskedTextBox2.Name = "maskedTextBox2";
+            maskedTextBox2.Size = new Size(144, 27);
+            maskedTextBox2.TabIndex = 5;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = SystemColors.ActiveCaptionText;
+            label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Transparent;
+            label4.Location = new Point(16, 170);
+            label4.Name = "label4";
+            label4.Size = new Size(54, 25);
+            label4.TabIndex = 4;
+            label4.Text = "Role:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = SystemColors.ActiveCaptionText;
+            label3.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.Location = new Point(16, 122);
+            label3.Name = "label3";
+            label3.Size = new Size(96, 25);
+            label3.TabIndex = 3;
+            label3.Text = "Password:";
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -147,13 +135,25 @@
             label2.TabIndex = 2;
             label2.Text = "Email:";
             // 
-            // maskedTextBox2
+            // maskedTextBox1
             // 
-            maskedTextBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox2.Location = new Point(145, 73);
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(144, 27);
-            maskedTextBox2.TabIndex = 5;
+            maskedTextBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBox1.Location = new Point(145, 27);
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(144, 27);
+            maskedTextBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.ActiveCaptionText;
+            label1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(16, 27);
+            label1.Name = "label1";
+            label1.Size = new Size(103, 25);
+            label1.TabIndex = 0;
+            label1.Text = "Username:";
             // 
             // panel2
             // 
@@ -183,10 +183,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.purple2;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(820, 458);
+            ClientSize = new Size(809, 463);
             Controls.Add(panel2);
             Controls.Add(panel1);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "SignupPage";
             Text = "Signup";
             panel1.ResumeLayout(false);
