@@ -31,11 +31,15 @@
             panel1 = new Panel();
             label2 = new Label();
             MainPanel = new Panel();
+            CommitteeNametxt = new TextBox();
+            cmbItec = new ComboBox();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
             dataGridView1 = new DataGridView();
+            label1 = new Label();
+            label3 = new Label();
             panel1.SuspendLayout();
             MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -65,6 +69,10 @@
             // MainPanel
             // 
             MainPanel.BackColor = SystemColors.ButtonFace;
+            MainPanel.Controls.Add(label3);
+            MainPanel.Controls.Add(label1);
+            MainPanel.Controls.Add(CommitteeNametxt);
+            MainPanel.Controls.Add(cmbItec);
             MainPanel.Controls.Add(button4);
             MainPanel.Controls.Add(button3);
             MainPanel.Controls.Add(button2);
@@ -75,6 +83,22 @@
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(982, 495);
             MainPanel.TabIndex = 8;
+            // 
+            // CommitteeNametxt
+            // 
+            CommitteeNametxt.Location = new Point(173, 89);
+            CommitteeNametxt.Name = "CommitteeNametxt";
+            CommitteeNametxt.Size = new Size(114, 23);
+            CommitteeNametxt.TabIndex = 41;
+            // 
+            // cmbItec
+            // 
+            cmbItec.FormattingEnabled = true;
+            cmbItec.Items.AddRange(new object[] { "1", "2", "3" });
+            cmbItec.Location = new Point(173, 44);
+            cmbItec.Name = "cmbItec";
+            cmbItec.Size = new Size(114, 23);
+            cmbItec.TabIndex = 38;
             // 
             // button4
             // 
@@ -128,6 +152,28 @@
             dataGridView1.Size = new Size(535, 303);
             dataGridView1.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Cursor = Cursors.Cross;
+            label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(45, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(37, 20);
+            label1.TabIndex = 44;
+            label1.Text = "Itec:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Cursor = Cursors.Cross;
+            label3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(19, 89);
+            label3.Name = "label3";
+            label3.Size = new Size(132, 20);
+            label3.TabIndex = 45;
+            label3.Text = "Committee Name:";
+            // 
             // CommiteesUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -139,6 +185,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             MainPanel.ResumeLayout(false);
+            MainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -153,5 +200,9 @@
         private Button button2;
         private Button button1;
         private DataGridView dataGridView1;
+        private ComboBox cmbItec;
+        private TextBox CommitteeNametxt;
+        private Label label3;
+        private Label label1;
     }
 }
