@@ -49,13 +49,15 @@ namespace Itec.Controls
             try
             {
                 EditionDL.AddEdition(newEdition);
-                LoadEditions(); 
+                LoadEditions();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error adding edition: {ex.Message}");
             }
         }
+
+
         //Update Button
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
@@ -75,7 +77,7 @@ namespace Itec.Controls
 
             var updatedEdition = new Edition
             {
-                ItecId = selectedEdition.ItecId, 
+                ItecId = selectedEdition.ItecId,
                 Year = Convert.ToInt32(Yeartxt.Text),
                 Theme = Themetxt.Text,
                 Description = Descriptiontxt.Text
@@ -84,7 +86,7 @@ namespace Itec.Controls
             try
             {
                 EditionDL.UpdateEdition(updatedEdition);
-                LoadEditions(); 
+                LoadEditions();
             }
             catch (Exception ex)
             {
@@ -110,24 +112,27 @@ namespace Itec.Controls
 
             try
             {
-                EditionDL.DeleteEdition(selectedEdition.ItecId); 
-                LoadEditions(); 
+                EditionDL.DeleteEdition(selectedEdition.ItecId);
+                LoadEditions();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error deleting edition: {ex.Message}");
             }
         }
-        
+
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 var selectedRow = dataGridView1.SelectedRows[0];
-                Yeartxt.Text = selectedRow.Cells["Year"].Value.ToString();
+                int year = Convert.ToInt32(selectedRow.Cells["Year"].Value);
+                Yeartxt.Value = new DateTime(year, 1, 1);
                 Themetxt.Text = selectedRow.Cells["Theme"].Value.ToString();
                 Descriptiontxt.Text = selectedRow.Cells["Description"].Value?.ToString();
             }
         }
+
+      
     }
 }

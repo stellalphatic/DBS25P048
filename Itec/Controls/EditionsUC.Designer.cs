@@ -31,13 +31,16 @@
             panel1 = new Panel();
             label2 = new Label();
             MainPanel = new Panel();
+            Yeartxt = new DateTimePicker();
+            Descriptiontxt = new RichTextBox();
+            label5 = new Label();
+            label4 = new Label();
+            label1 = new Label();
+            label3 = new Label();
             Themetxt = new TextBox();
-            Descriptiontxt = new TextBox();
-            Yeartxt = new TextBox();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            UpdateBtn = new Button();
+            DeleteBtn = new Button();
+            AddBtn = new Button();
             dataGridView1 = new DataGridView();
             Year = new DataGridViewTextBoxColumn();
             Theme = new DataGridViewTextBoxColumn();
@@ -73,13 +76,16 @@
             // MainPanel
             // 
             MainPanel.BackColor = SystemColors.ButtonFace;
-            MainPanel.Controls.Add(Themetxt);
-            MainPanel.Controls.Add(Descriptiontxt);
             MainPanel.Controls.Add(Yeartxt);
-            MainPanel.Controls.Add(button4);
-            MainPanel.Controls.Add(button3);
-            MainPanel.Controls.Add(button2);
-            MainPanel.Controls.Add(button1);
+            MainPanel.Controls.Add(Descriptiontxt);
+            MainPanel.Controls.Add(label5);
+            MainPanel.Controls.Add(label4);
+            MainPanel.Controls.Add(label1);
+            MainPanel.Controls.Add(label3);
+            MainPanel.Controls.Add(Themetxt);
+            MainPanel.Controls.Add(UpdateBtn);
+            MainPanel.Controls.Add(DeleteBtn);
+            MainPanel.Controls.Add(AddBtn);
             MainPanel.Controls.Add(dataGridView1);
             MainPanel.Dock = DockStyle.Fill;
             MainPanel.Location = new Point(0, 49);
@@ -87,78 +93,117 @@
             MainPanel.Size = new Size(982, 495);
             MainPanel.TabIndex = 11;
             // 
+            // Yeartxt
+            // 
+            Yeartxt.CustomFormat = "yyyy";
+            Yeartxt.Format = DateTimePickerFormat.Custom;
+            Yeartxt.Location = new Point(149, 96);
+            Yeartxt.Name = "Yeartxt";
+            Yeartxt.Size = new Size(158, 23);
+            Yeartxt.TabIndex = 43;
+            // 
+            // Descriptiontxt
+            // 
+            Descriptiontxt.Location = new Point(149, 206);
+            Descriptiontxt.Name = "Descriptiontxt";
+            Descriptiontxt.Size = new Size(158, 88);
+            Descriptiontxt.TabIndex = 42;
+            Descriptiontxt.Text = "";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Cursor = Cursors.Cross;
+            label5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(45, 205);
+            label5.Name = "label5";
+            label5.Size = new Size(91, 20);
+            label5.TabIndex = 26;
+            label5.Text = "Description:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Cursor = Cursors.Cross;
+            label4.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(45, 149);
+            label4.Name = "label4";
+            label4.Size = new Size(59, 20);
+            label4.TabIndex = 25;
+            label4.Text = "Theme:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Cursor = Cursors.Cross;
+            label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(-402, -50);
+            label1.Name = "label1";
+            label1.Size = new Size(59, 20);
+            label1.TabIndex = 24;
+            label1.Text = "Theme:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Cursor = Cursors.Cross;
+            label3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(45, 96);
+            label3.Name = "label3";
+            label3.Size = new Size(44, 20);
+            label3.TabIndex = 23;
+            label3.Text = "Year:";
+            // 
             // Themetxt
             // 
-            Themetxt.Location = new Point(113, 92);
+            Themetxt.Location = new Point(149, 150);
             Themetxt.Name = "Themetxt";
             Themetxt.Size = new Size(100, 23);
             Themetxt.TabIndex = 19;
             // 
-            // Descriptiontxt
+            // UpdateBtn
             // 
-            Descriptiontxt.Location = new Point(113, 152);
-            Descriptiontxt.Name = "Descriptiontxt";
-            Descriptiontxt.Size = new Size(100, 23);
-            Descriptiontxt.TabIndex = 18;
+            UpdateBtn.BackColor = SystemColors.ActiveCaption;
+            UpdateBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UpdateBtn.Location = new Point(232, 323);
+            UpdateBtn.Name = "UpdateBtn";
+            UpdateBtn.Size = new Size(75, 31);
+            UpdateBtn.TabIndex = 15;
+            UpdateBtn.Text = "Update";
+            UpdateBtn.UseVisualStyleBackColor = false;
+            UpdateBtn.Click += UpdateBtn_Click;
             // 
-            // Yeartxt
+            // DeleteBtn
             // 
-            Yeartxt.Location = new Point(113, 34);
-            Yeartxt.Name = "Yeartxt";
-            Yeartxt.Size = new Size(100, 23);
-            Yeartxt.TabIndex = 17;
+            DeleteBtn.BackColor = SystemColors.ActiveCaption;
+            DeleteBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DeleteBtn.Location = new Point(149, 375);
+            DeleteBtn.Name = "DeleteBtn";
+            DeleteBtn.Size = new Size(75, 31);
+            DeleteBtn.TabIndex = 14;
+            DeleteBtn.Text = "Delete";
+            DeleteBtn.UseVisualStyleBackColor = false;
+            DeleteBtn.Click += DeleteBtn_Click;
             // 
-            // button4
+            // AddBtn
             // 
-            button4.BackColor = SystemColors.ActiveCaption;
-            button4.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.Location = new Point(493, 356);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 31);
-            button4.TabIndex = 16;
-            button4.Text = "Search";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.BackColor = SystemColors.ActiveCaption;
-            button3.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(364, 346);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 31);
-            button3.TabIndex = 15;
-            button3.Text = "Update";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = SystemColors.ActiveCaption;
-            button2.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(175, 400);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 31);
-            button2.TabIndex = 14;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.ActiveCaption;
-            button1.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(175, 346);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 31);
-            button1.TabIndex = 13;
-            button1.Text = "Insert";
-            button1.UseVisualStyleBackColor = false;
+            AddBtn.BackColor = SystemColors.ActiveCaption;
+            AddBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AddBtn.Location = new Point(71, 323);
+            AddBtn.Name = "AddBtn";
+            AddBtn.Size = new Size(75, 31);
+            AddBtn.TabIndex = 13;
+            AddBtn.Text = "Insert";
+            AddBtn.UseVisualStyleBackColor = false;
+            AddBtn.Click += AddBtn_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Year, Theme, Description1, NoOfEvents, NoOfParticipants });
-            dataGridView1.Location = new Point(426, 18);
+            dataGridView1.Location = new Point(365, 18);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(541, 291);
+            dataGridView1.Size = new Size(603, 291);
             dataGridView1.TabIndex = 12;
             // 
             // Year
@@ -175,6 +220,7 @@
             // 
             Description1.HeaderText = "Description";
             Description1.Name = "Description1";
+            Description1.Width = 160;
             // 
             // NoOfEvents
             // 
@@ -207,18 +253,21 @@
         private Panel panel1;
         private Label label2;
         private Panel MainPanel;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button UpdateBtn;
+        private Button DeleteBtn;
+        private Button AddBtn;
         private DataGridView dataGridView1;
+        private TextBox Themetxt;
+        private Label label1;
+        private Label label3;
+        private Label label5;
+        private Label label4;
+        private RichTextBox Descriptiontxt;
         private DataGridViewTextBoxColumn Year;
         private DataGridViewTextBoxColumn Theme;
         private DataGridViewTextBoxColumn Description1;
         private DataGridViewTextBoxColumn NoOfEvents;
         private DataGridViewTextBoxColumn NoOfParticipants;
-        private TextBox Themetxt;
-        private TextBox Descriptiontxt;
-        private TextBox Yeartxt;
+        private DateTimePicker Yeartxt;
     }
 }
