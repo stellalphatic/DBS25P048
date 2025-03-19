@@ -246,7 +246,7 @@
             button3.TabIndex = 15;
             button3.Text = "Update";
             button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+           
             // 
             // button2
             // 
@@ -258,7 +258,7 @@
             button2.TabIndex = 14;
             button2.Text = "Delete";
             button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            
             // 
             // button1
             // 
@@ -270,7 +270,7 @@
             button1.TabIndex = 13;
             button1.Text = "Insert";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+           
             // 
             // dataGridView1
             // 

@@ -31,11 +31,19 @@
             panel1 = new Panel();
             label2 = new Label();
             MainPanel = new Panel();
+            Themetxt = new TextBox();
+            Descriptiontxt = new TextBox();
+            Yeartxt = new TextBox();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
             dataGridView1 = new DataGridView();
+            Year = new DataGridViewTextBoxColumn();
+            Theme = new DataGridViewTextBoxColumn();
+            Description1 = new DataGridViewTextBoxColumn();
+            NoOfEvents = new DataGridViewTextBoxColumn();
+            NoOfParticipants = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -65,6 +73,9 @@
             // MainPanel
             // 
             MainPanel.BackColor = SystemColors.ButtonFace;
+            MainPanel.Controls.Add(Themetxt);
+            MainPanel.Controls.Add(Descriptiontxt);
+            MainPanel.Controls.Add(Yeartxt);
             MainPanel.Controls.Add(button4);
             MainPanel.Controls.Add(button3);
             MainPanel.Controls.Add(button2);
@@ -75,6 +86,27 @@
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(982, 495);
             MainPanel.TabIndex = 11;
+            // 
+            // Themetxt
+            // 
+            Themetxt.Location = new Point(113, 92);
+            Themetxt.Name = "Themetxt";
+            Themetxt.Size = new Size(100, 23);
+            Themetxt.TabIndex = 19;
+            // 
+            // Descriptiontxt
+            // 
+            Descriptiontxt.Location = new Point(113, 152);
+            Descriptiontxt.Name = "Descriptiontxt";
+            Descriptiontxt.Size = new Size(100, 23);
+            Descriptiontxt.TabIndex = 18;
+            // 
+            // Yeartxt
+            // 
+            Yeartxt.Location = new Point(113, 34);
+            Yeartxt.Name = "Yeartxt";
+            Yeartxt.Size = new Size(100, 23);
+            Yeartxt.TabIndex = 17;
             // 
             // button4
             // 
@@ -123,10 +155,36 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(472, 18);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Year, Theme, Description1, NoOfEvents, NoOfParticipants });
+            dataGridView1.Location = new Point(426, 18);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(495, 291);
+            dataGridView1.Size = new Size(541, 291);
             dataGridView1.TabIndex = 12;
+            // 
+            // Year
+            // 
+            Year.HeaderText = "Year";
+            Year.Name = "Year";
+            // 
+            // Theme
+            // 
+            Theme.HeaderText = "Theme";
+            Theme.Name = "Theme";
+            // 
+            // Description1
+            // 
+            Description1.HeaderText = "Description";
+            Description1.Name = "Description1";
+            // 
+            // NoOfEvents
+            // 
+            NoOfEvents.HeaderText = "NoOfEvents";
+            NoOfEvents.Name = "NoOfEvents";
+            // 
+            // NoOfParticipants
+            // 
+            NoOfParticipants.HeaderText = "NoOfParticipants";
+            NoOfParticipants.Name = "NoOfParticipants";
             // 
             // EditionsUC
             // 
@@ -139,6 +197,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             MainPanel.ResumeLayout(false);
+            MainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -153,5 +212,13 @@
         private Button button2;
         private Button button1;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Year;
+        private DataGridViewTextBoxColumn Theme;
+        private DataGridViewTextBoxColumn Description1;
+        private DataGridViewTextBoxColumn NoOfEvents;
+        private DataGridViewTextBoxColumn NoOfParticipants;
+        private TextBox Themetxt;
+        private TextBox Descriptiontxt;
+        private TextBox Yeartxt;
     }
 }

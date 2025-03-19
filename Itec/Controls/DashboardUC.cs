@@ -47,7 +47,7 @@ namespace Itec.Controls
 
         private void PopulateComboboxes()
         {
-            //Role combobox
+            //Populating Role comboBox
             string roleQuery = "SELECT role_id, role_name FROM roles";
             DataTable roleData = DatabaseHelper.GetData(roleQuery);
             cmbRole.DataSource = roleData;
@@ -64,15 +64,12 @@ namespace Itec.Controls
             }
 
             int userId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["User_id"].Value);
-            MessageBox.Show($"Selected UserId: {userId}");
-
             int roleId = Convert.ToInt32(cmbRole.SelectedValue);
-            MessageBox.Show($"Selected RoleId: {roleId}");
 
             try
             {
                 UserDL.AssignRole(userId, roleId);
-                LoadPendingUsers(); // Refresh the list
+                LoadPendingUsers(); 
                 MessageBox.Show("Role assigned successfully!");
             }
             catch (Exception ex)

@@ -31,9 +31,10 @@
             panel1 = new Panel();
             label2 = new Label();
             MainPanel = new Panel();
+            cmbItec = new ComboBox();
+            cmbRole = new ComboBox();
             label8 = new Label();
             label9 = new Label();
-            RollIDtxt = new TextBox();
             Institutetxt = new TextBox();
             label7 = new Label();
             label6 = new Label();
@@ -43,7 +44,6 @@
             Contacttxt = new TextBox();
             Emailtxt = new TextBox();
             Nametxt = new TextBox();
-            ItecIDtxt = new TextBox();
             ParticipantIDtxt = new TextBox();
             SearchBtn = new Button();
             UpdateBtn = new Button();
@@ -86,9 +86,10 @@
             // MainPanel
             // 
             MainPanel.BackColor = SystemColors.ButtonFace;
+            MainPanel.Controls.Add(cmbItec);
+            MainPanel.Controls.Add(cmbRole);
             MainPanel.Controls.Add(label8);
             MainPanel.Controls.Add(label9);
-            MainPanel.Controls.Add(RollIDtxt);
             MainPanel.Controls.Add(Institutetxt);
             MainPanel.Controls.Add(label7);
             MainPanel.Controls.Add(label6);
@@ -98,7 +99,6 @@
             MainPanel.Controls.Add(Contacttxt);
             MainPanel.Controls.Add(Emailtxt);
             MainPanel.Controls.Add(Nametxt);
-            MainPanel.Controls.Add(ItecIDtxt);
             MainPanel.Controls.Add(ParticipantIDtxt);
             MainPanel.Controls.Add(SearchBtn);
             MainPanel.Controls.Add(UpdateBtn);
@@ -111,6 +111,24 @@
             MainPanel.Size = new Size(982, 495);
             MainPanel.TabIndex = 11;
             // 
+            // cmbItec
+            // 
+            cmbItec.FormattingEnabled = true;
+            cmbItec.Items.AddRange(new object[] { "1", "2", "3" });
+            cmbItec.Location = new Point(133, 70);
+            cmbItec.Name = "cmbItec";
+            cmbItec.Size = new Size(114, 23);
+            cmbItec.TabIndex = 32;
+            // 
+            // cmbRole
+            // 
+            cmbRole.FormattingEnabled = true;
+            cmbRole.Items.AddRange(new object[] { "1", "2", "3" });
+            cmbRole.Location = new Point(133, 237);
+            cmbRole.Name = "cmbRole";
+            cmbRole.Size = new Size(114, 23);
+            cmbRole.TabIndex = 31;
+            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -118,9 +136,9 @@
             label8.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.Location = new Point(21, 237);
             label8.Name = "label8";
-            label8.Size = new Size(60, 20);
+            label8.Size = new Size(64, 20);
             label8.TabIndex = 30;
-            label8.Text = "Roll_ID:";
+            label8.Text = "Role_ID:";
             // 
             // label9
             // 
@@ -132,13 +150,6 @@
             label9.Size = new Size(68, 20);
             label9.TabIndex = 29;
             label9.Text = "Institute:";
-            // 
-            // RollIDtxt
-            // 
-            RollIDtxt.Location = new Point(133, 238);
-            RollIDtxt.Name = "RollIDtxt";
-            RollIDtxt.Size = new Size(114, 23);
-            RollIDtxt.TabIndex = 28;
             // 
             // Institutetxt
             // 
@@ -223,13 +234,6 @@
             Nametxt.Size = new Size(114, 23);
             Nametxt.TabIndex = 19;
             // 
-            // ItecIDtxt
-            // 
-            ItecIDtxt.Location = new Point(133, 70);
-            ItecIDtxt.Name = "ItecIDtxt";
-            ItecIDtxt.Size = new Size(114, 23);
-            ItecIDtxt.TabIndex = 18;
-            // 
             // ParticipantIDtxt
             // 
             ParticipantIDtxt.Location = new Point(133, 38);
@@ -258,6 +262,7 @@
             UpdateBtn.TabIndex = 15;
             UpdateBtn.Text = "Update";
             UpdateBtn.UseVisualStyleBackColor = false;
+            UpdateBtn.Click += UpdateBtn_Click;
             // 
             // DeleteBtn
             // 
@@ -269,6 +274,7 @@
             DeleteBtn.TabIndex = 14;
             DeleteBtn.Text = "Delete";
             DeleteBtn.UseVisualStyleBackColor = false;
+            DeleteBtn.Click += DeleteBtn_Click;
             // 
             // AddBtn
             // 
@@ -280,6 +286,7 @@
             AddBtn.TabIndex = 13;
             AddBtn.Text = "Insert";
             AddBtn.UseVisualStyleBackColor = false;
+            AddBtn.Click += AddBtn_Click;
             // 
             // dataGridView1
             // 
@@ -289,7 +296,6 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(627, 291);
             dataGridView1.TabIndex = 12;
-        
             // 
             // Participant_ID
             // 
@@ -353,7 +359,6 @@
         private Panel MainPanel;
         private Label label8;
         private Label label9;
-        private TextBox RollIDtxt;
         private TextBox Institutetxt;
         private Label label7;
         private Label label6;
@@ -377,5 +382,7 @@
         private DataGridViewTextBoxColumn Contact;
         private DataGridViewTextBoxColumn Institute;
         private DataGridViewTextBoxColumn Role_ID;
+        private ComboBox cmbRole;
+        private ComboBox cmbItec;
     }
 }

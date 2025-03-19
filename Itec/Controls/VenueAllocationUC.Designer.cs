@@ -1,6 +1,6 @@
 ﻿namespace Itec.Controls
 {
-    partial class VenuesUC
+    partial class VenueAllocationUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,110 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            VenuesBtn = new Button();
-            VenueAllocationBtn = new Button();
-            label2 = new Label();
             MainPanel = new Panel();
-            Locationtxt = new TextBox();
-            Capacitytxt = new TextBox();
+            dtpTime = new DateTimePicker();
+            label1 = new Label();
+            dtpDate = new DateTimePicker();
+            cmbEvent = new ComboBox();
+            cmbVenue = new ComboBox();
             LocationLabel = new Label();
             capacityLabel = new Label();
             VenueNameLabel = new Label();
-            VenueNametxt = new TextBox();
             SearchBtn = new Button();
             UpdateBtn = new Button();
             DeleteBtn = new Button();
             AddBtn = new Button();
             dataGridView1 = new DataGridView();
+            Allocation_id = new DataGridViewTextBoxColumn();
+            Event_id = new DataGridViewTextBoxColumn();
             Venue_id = new DataGridViewTextBoxColumn();
-            VenueName = new DataGridViewTextBoxColumn();
-            Capacity = new DataGridViewTextBoxColumn();
-            Location = new DataGridViewTextBoxColumn();
-            panel1.SuspendLayout();
+            Assigned_date = new DataGridViewTextBoxColumn();
+            Assigned_time = new DataGridViewTextBoxColumn();
             MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // panel1
-            // 
-            panel1.BackColor = SystemColors.Highlight;
-            panel1.Controls.Add(VenuesBtn);
-            panel1.Controls.Add(VenueAllocationBtn);
-            panel1.Controls.Add(label2);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(982, 48);
-            panel1.TabIndex = 9;
-            // 
-            // VenuesBtn
-            // 
-            VenuesBtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            VenuesBtn.Location = new Point(497, 8);
-            VenuesBtn.Name = "VenuesBtn";
-            VenuesBtn.Size = new Size(166, 30);
-            VenuesBtn.TabIndex = 29;
-            VenuesBtn.Text = "Venues";
-            VenuesBtn.UseVisualStyleBackColor = true;
-            VenuesBtn.Click += VenuesBtn_Click;
-            // 
-            // VenueAllocationBtn
-            // 
-            VenueAllocationBtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            VenueAllocationBtn.Location = new Point(743, 9);
-            VenueAllocationBtn.Name = "VenueAllocationBtn";
-            VenueAllocationBtn.Size = new Size(166, 30);
-            VenueAllocationBtn.TabIndex = 28;
-            VenueAllocationBtn.Text = "Venue Allocations";
-            VenueAllocationBtn.UseVisualStyleBackColor = true;
-            VenueAllocationBtn.Click += VenueAllocationBtn_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Gill Sans MT", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(46, 8);
-            label2.Name = "label2";
-            label2.Size = new Size(85, 30);
-            label2.TabIndex = 8;
-            label2.Text = "Venues";
-            // 
             // MainPanel
             // 
             MainPanel.BackColor = SystemColors.ButtonFace;
-            MainPanel.Controls.Add(Locationtxt);
-            MainPanel.Controls.Add(Capacitytxt);
+            MainPanel.Controls.Add(dtpTime);
+            MainPanel.Controls.Add(label1);
+            MainPanel.Controls.Add(dtpDate);
+            MainPanel.Controls.Add(cmbEvent);
+            MainPanel.Controls.Add(cmbVenue);
             MainPanel.Controls.Add(LocationLabel);
             MainPanel.Controls.Add(capacityLabel);
             MainPanel.Controls.Add(VenueNameLabel);
-            MainPanel.Controls.Add(VenueNametxt);
             MainPanel.Controls.Add(SearchBtn);
             MainPanel.Controls.Add(UpdateBtn);
             MainPanel.Controls.Add(DeleteBtn);
             MainPanel.Controls.Add(AddBtn);
             MainPanel.Controls.Add(dataGridView1);
             MainPanel.Dock = DockStyle.Fill;
-            MainPanel.Location = new Point(0, 48);
+            MainPanel.Location = new Point(0, 0);
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(982, 496);
-            MainPanel.TabIndex = 11;
-            MainPanel.Paint += MainPanel_Paint;
+            MainPanel.TabIndex = 12;
             // 
-            // Locationtxt
+            // dtpTime
             // 
-            Locationtxt.Location = new Point(144, 165);
-            Locationtxt.Name = "Locationtxt";
-            Locationtxt.Size = new Size(114, 23);
-            Locationtxt.TabIndex = 27;
+            dtpTime.CustomFormat = "hh:mm:ss";
+            dtpTime.Format = DateTimePickerFormat.Custom;
+            dtpTime.Location = new Point(161, 199);
+            dtpTime.Name = "dtpTime";
+            dtpTime.ShowUpDown = true;
+            dtpTime.Size = new Size(200, 23);
+            dtpTime.TabIndex = 36;
+            dtpTime.Value = new DateTime(2025, 3, 16, 7, 26, 0, 0);
             // 
-            // Capacitytxt
+            // label1
             // 
-            Capacitytxt.Location = new Point(144, 123);
-            Capacitytxt.Name = "Capacitytxt";
-            Capacitytxt.Size = new Size(114, 23);
-            Capacitytxt.TabIndex = 26;
+            label1.AutoSize = true;
+            label1.Cursor = Cursors.Cross;
+            label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(30, 199);
+            label1.Name = "label1";
+            label1.Size = new Size(114, 20);
+            label1.TabIndex = 35;
+            label1.Text = "Assigned(time):";
+            // 
+            // dtpDate
+            // 
+            dtpDate.CustomFormat = "yyyy-MM-dd";
+            dtpDate.Format = DateTimePickerFormat.Custom;
+            dtpDate.Location = new Point(161, 164);
+            dtpDate.Name = "dtpDate";
+            dtpDate.Size = new Size(186, 23);
+            dtpDate.TabIndex = 34;
+            dtpDate.Value = new DateTime(2025, 7, 24, 0, 0, 0, 0);
+            // 
+            // cmbEvent
+            // 
+            cmbEvent.FormattingEnabled = true;
+            cmbEvent.Items.AddRange(new object[] { "1", "2", "3" });
+            cmbEvent.Location = new Point(161, 82);
+            cmbEvent.Name = "cmbEvent";
+            cmbEvent.Size = new Size(114, 23);
+            cmbEvent.TabIndex = 33;
+            // 
+            // cmbVenue
+            // 
+            cmbVenue.FormattingEnabled = true;
+            cmbVenue.Items.AddRange(new object[] { "1", "2", "3" });
+            cmbVenue.Location = new Point(161, 126);
+            cmbVenue.Name = "cmbVenue";
+            cmbVenue.Size = new Size(114, 23);
+            cmbVenue.TabIndex = 32;
             // 
             // LocationLabel
             // 
@@ -140,9 +130,9 @@
             LocationLabel.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LocationLabel.Location = new Point(30, 164);
             LocationLabel.Name = "LocationLabel";
-            LocationLabel.Size = new Size(71, 20);
+            LocationLabel.Size = new Size(93, 20);
             LocationLabel.TabIndex = 25;
-            LocationLabel.Text = "Location:";
+            LocationLabel.Text = "Assigned_at:";
             // 
             // capacityLabel
             // 
@@ -151,10 +141,9 @@
             capacityLabel.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             capacityLabel.Location = new Point(30, 126);
             capacityLabel.Name = "capacityLabel";
-            capacityLabel.Size = new Size(71, 20);
+            capacityLabel.Size = new Size(56, 20);
             capacityLabel.TabIndex = 24;
-            capacityLabel.Text = "Capacity:";
-            capacityLabel.Click += Capacitytxt_Click;
+            capacityLabel.Text = "Venue:";
             // 
             // VenueNameLabel
             // 
@@ -163,22 +152,15 @@
             VenueNameLabel.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             VenueNameLabel.Location = new Point(30, 81);
             VenueNameLabel.Name = "VenueNameLabel";
-            VenueNameLabel.Size = new Size(101, 20);
+            VenueNameLabel.Size = new Size(51, 20);
             VenueNameLabel.TabIndex = 23;
-            VenueNameLabel.Text = "Venue Name:";
-            // 
-            // VenueNametxt
-            // 
-            VenueNametxt.Location = new Point(144, 82);
-            VenueNametxt.Name = "VenueNametxt";
-            VenueNametxt.Size = new Size(114, 23);
-            VenueNametxt.TabIndex = 18;
+            VenueNameLabel.Text = "Event:";
             // 
             // SearchBtn
             // 
             SearchBtn.BackColor = SystemColors.ActiveCaption;
             SearchBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SearchBtn.Location = new Point(218, 255);
+            SearchBtn.Location = new Point(230, 290);
             SearchBtn.Name = "SearchBtn";
             SearchBtn.Size = new Size(75, 31);
             SearchBtn.TabIndex = 16;
@@ -189,7 +171,7 @@
             // 
             UpdateBtn.BackColor = SystemColors.ActiveCaption;
             UpdateBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            UpdateBtn.Location = new Point(161, 218);
+            UpdateBtn.Location = new Point(161, 253);
             UpdateBtn.Name = "UpdateBtn";
             UpdateBtn.Size = new Size(75, 31);
             UpdateBtn.TabIndex = 15;
@@ -201,7 +183,7 @@
             // 
             DeleteBtn.BackColor = SystemColors.ActiveCaption;
             DeleteBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            DeleteBtn.Location = new Point(99, 255);
+            DeleteBtn.Location = new Point(81, 290);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(75, 31);
             DeleteBtn.TabIndex = 14;
@@ -213,7 +195,7 @@
             // 
             AddBtn.BackColor = SystemColors.ActiveCaption;
             AddBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AddBtn.Location = new Point(26, 218);
+            AddBtn.Location = new Point(11, 253);
             AddBtn.Name = "AddBtn";
             AddBtn.Size = new Size(75, 31);
             AddBtn.TabIndex = 13;
@@ -224,45 +206,44 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Venue_id, VenueName, Capacity, Location });
-            dataGridView1.Location = new Point(408, 30);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Allocation_id, Event_id, Venue_id, Assigned_date, Assigned_time });
+            dataGridView1.Location = new Point(409, 30);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(544, 291);
+            dataGridView1.Size = new Size(543, 291);
             dataGridView1.TabIndex = 12;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // Allocation_id
+            // 
+            Allocation_id.HeaderText = "Allocation_id";
+            Allocation_id.Name = "Allocation_id";
+            // 
+            // Event_id
+            // 
+            Event_id.HeaderText = "Event_id";
+            Event_id.Name = "Event_id";
             // 
             // Venue_id
             // 
             Venue_id.HeaderText = "Venue_id";
             Venue_id.Name = "Venue_id";
             // 
-            // VenueName
+            // Assigned_date
             // 
-            VenueName.HeaderText = "Venue Name";
-            VenueName.Name = "VenueName";
-            VenueName.Width = 120;
+            Assigned_date.HeaderText = "Assigned_date";
+            Assigned_date.Name = "Assigned_date";
             // 
-            // Capacity
+            // Assigned_time
             // 
-            Capacity.HeaderText = "Capacity";
-            Capacity.Name = "Capacity";
+            Assigned_time.HeaderText = "Assigned_time";
+            Assigned_time.Name = "Assigned_time";
             // 
-            // Location
-            // 
-            Location.HeaderText = "Location";
-            Location.Name = "Location";
-            Location.Width = 180;
-            // 
-            // VenuesUC
+            // VenueAllocationUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(MainPanel);
-            Controls.Add(panel1);
-            Name = "VenuesUC";
-            Size = new Size(982, 544);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            Name = "VenueAllocationUC";
+            Size = new Size(982, 496);
             MainPanel.ResumeLayout(false);
             MainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -271,25 +252,24 @@
 
         #endregion
 
-        private Panel panel1;
-        private Label label2;
         private Panel MainPanel;
+        private Label LocationLabel;
+        private Label capacityLabel;
+        private Label VenueNameLabel;
         private Button SearchBtn;
         private Button UpdateBtn;
         private Button DeleteBtn;
         private Button AddBtn;
         private DataGridView dataGridView1;
-        private TextBox VenueNametxt;
-        private Label VenueNameLabel;
-        private TextBox Locationtxt;
-        private TextBox Capacitytxt;
-        private Label LocationLabel;
-        private Label capacityLabel;
-        private Button VenueAllocationBtn;
-        private Button VenuesBtn;
+        private ComboBox cmbEvent;
+        private ComboBox cmbVenue;
+        private DateTimePicker dtpDate;
+        private Label label1;
+        private DateTimePicker dtpTime;
+        private DataGridViewTextBoxColumn Allocation_id;
+        private DataGridViewTextBoxColumn Event_id;
         private DataGridViewTextBoxColumn Venue_id;
-        private DataGridViewTextBoxColumn VenueName;
-        private DataGridViewTextBoxColumn Capacity;
-        private DataGridViewTextBoxColumn Location;
+        private DataGridViewTextBoxColumn Assigned_date;
+        private DataGridViewTextBoxColumn Assigned_time;
     }
 }

@@ -31,6 +31,8 @@
             panel1 = new Panel();
             label2 = new Label();
             MainPanel = new Panel();
+            label3 = new Label();
+            label1 = new Label();
             CommitteeNametxt = new TextBox();
             cmbItec = new ComboBox();
             button4 = new Button();
@@ -38,8 +40,9 @@
             button2 = new Button();
             button1 = new Button();
             dataGridView1 = new DataGridView();
-            label1 = new Label();
-            label3 = new Label();
+            commitee_id = new DataGridViewTextBoxColumn();
+            Itec_ID = new DataGridViewTextBoxColumn();
+            CommiteeName = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -83,6 +86,28 @@
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(982, 495);
             MainPanel.TabIndex = 8;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Cursor = Cursors.Cross;
+            label3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(19, 89);
+            label3.Name = "label3";
+            label3.Size = new Size(132, 20);
+            label3.TabIndex = 45;
+            label3.Text = "Committee Name:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Cursor = Cursors.Cross;
+            label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(45, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(37, 20);
+            label1.TabIndex = 44;
+            label1.Text = "Itec:";
             // 
             // CommitteeNametxt
             // 
@@ -147,32 +172,26 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(442, 3);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { commitee_id, Itec_ID, CommiteeName });
+            dataGridView1.Location = new Point(634, 3);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(535, 303);
+            dataGridView1.Size = new Size(343, 278);
             dataGridView1.TabIndex = 0;
             // 
-            // label1
+            // commitee_id
             // 
-            label1.AutoSize = true;
-            label1.Cursor = Cursors.Cross;
-            label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(45, 47);
-            label1.Name = "label1";
-            label1.Size = new Size(37, 20);
-            label1.TabIndex = 44;
-            label1.Text = "Itec:";
+            commitee_id.HeaderText = "Committee_id";
+            commitee_id.Name = "commitee_id";
             // 
-            // label3
+            // Itec_ID
             // 
-            label3.AutoSize = true;
-            label3.Cursor = Cursors.Cross;
-            label3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(19, 89);
-            label3.Name = "label3";
-            label3.Size = new Size(132, 20);
-            label3.TabIndex = 45;
-            label3.Text = "Committee Name:";
+            Itec_ID.HeaderText = "Itec_id";
+            Itec_ID.Name = "Itec_ID";
+            // 
+            // CommiteeName
+            // 
+            CommiteeName.HeaderText = "CommitteeName";
+            CommiteeName.Name = "CommiteeName";
             // 
             // CommiteesUC
             // 
@@ -204,5 +223,8 @@
         private TextBox CommitteeNametxt;
         private Label label3;
         private Label label1;
+        private DataGridViewTextBoxColumn commitee_id;
+        private DataGridViewTextBoxColumn Itec_ID;
+        private DataGridViewTextBoxColumn CommiteeName;
     }
 }

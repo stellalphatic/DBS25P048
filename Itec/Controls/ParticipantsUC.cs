@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using Itec.BL;
+using Itec.DB;
 using Itec.DL;
 
 namespace Itec.Controls
@@ -19,15 +20,35 @@ namespace Itec.Controls
         {
             InitializeComponent();
             LoadParticipants();
+            PopulateComboboxes();
         }
 
-        // Load participants into DataGridView
+        //Loading participants to grid
         private void LoadParticipants()
         {
             try
             {
                 var participants = ParticipantsDL.GetAllParticipants();
-                dataGridView1.DataSource = participants;
+                //dataGridView1.DataSource = participants;
+
+
+                dataGridView1.Rows.Clear();
+
+                //Adding rows to grid
+                foreach (var participant in participants)
+                {
+                    dataGridView1.Rows.Add(
+                        participant.ParticipantId,
+                        participant.Name,
+                        participant.ItecId,
+                        participant.Email,
+                        participant.Contact,
+                        participant.Institute,
+                        participant.RoleId
+                    );
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -35,7 +56,7 @@ namespace Itec.Controls
             }
         }
 
-        // Add a new participant
+        //Insert button
         private void AddBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(Nametxt.Text) || string.IsNullOrWhiteSpace(Emailtxt.Text))
@@ -46,10 +67,12 @@ namespace Itec.Controls
 
             var newParticipant = new Participant
             {
+                ItecId = Convert.ToInt32(cmbItec.SelectedValue),
                 Name = Nametxt.Text,
                 Email = Emailtxt.Text,
                 Contact = Contacttxt.Text,
-                Institute = Institutetxt.Text
+                Institute = Institutetxt.Text,
+                RoleId = Convert.ToInt32(cmbRole.SelectedValue)
             };
 
             try
@@ -64,27 +87,29 @@ namespace Itec.Controls
             }
         }
 
-        // Update selected participant
+        //Update button
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
+
             if (dataGridView1.SelectedRows.Count == 0) return;
 
-            var selected = (Participant)dataGridView1.SelectedRows[0].DataBoundItem;
+            var selectedRow = dataGridView1.SelectedRows[0];
+            int participantId = Convert.ToInt32(selectedRow.Cells["Participant_Id"].Value);
 
-            if (string.IsNullOrWhiteSpace(Nametxt.Text) || string.IsNullOrWhiteSpace(Emailtxt.Text))
+            var updatedParticipant = new Participant
             {
-                MessageBox.Show("Name and Email are required!");
-                return;
-            }
-
-            selected.Name = Nametxt.Text;
-            selected.Email = Emailtxt.Text;
-            selected.Contact = Contacttxt.Text;
-            selected.Institute = Institutetxt.Text;
+                ParticipantId = participantId,
+                ItecId = Convert.ToInt32(cmbItec.SelectedValue),
+                Name = Nametxt.Text,
+                Email = Emailtxt.Text,
+                Contact = Contacttxt.Text,
+                Institute = Institutetxt.Text,
+                RoleId = Convert.ToInt32(cmbRole.SelectedValue)
+            };
 
             try
             {
-                ParticipantsDL.UpdateParticipant(selected);
+                ParticipantsDL.UpdateParticipant(updatedParticipant);
                 LoadParticipants();
             }
             catch (Exception ex)
@@ -93,20 +118,21 @@ namespace Itec.Controls
             }
         }
 
-        // Delete selected participant
+        //Delete Button
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0) return;
 
-            var selected = (Participant)dataGridView1.SelectedRows[0].DataBoundItem;
+            var selectedRow = dataGridView1.SelectedRows[0];
+            int participantId = Convert.ToInt32(selectedRow.Cells["Participant_Id"].Value);
 
             if (MessageBox.Show("Delete this participant?", "Confirm",
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 try
                 {
-                    ParticipantsDL.DeleteParticipant(selected.ParticipantId);
-                    LoadParticipants();
+                    ParticipantsDL.DeleteParticipant(participantId);
+                    LoadParticipants(); 
                 }
                 catch (Exception ex)
                 {
@@ -115,7 +141,7 @@ namespace Itec.Controls
             }
         }
 
-        // Show selected participant data in textboxes
+        //Showing selected date from grid to textboxes
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -128,7 +154,7 @@ namespace Itec.Controls
             }
         }
 
-        // Clear input fields
+        //Clearing textboxes
         private void ClearFields()
         {
             Nametxt.Clear();
@@ -136,5 +162,23 @@ namespace Itec.Controls
             Contacttxt.Clear();
             Institutetxt.Clear();
         }
+        private void PopulateComboboxes()
+        {
+            //Itec year combobox
+            string itecQuery = "SELECT itec_id, year FROM itec_editions";
+            DataTable itecData = DatabaseHelper.GetData(itecQuery);
+            cmbItec.DataSource = itecData;
+            cmbItec.DisplayMember = "year";
+            cmbItec.ValueMember = "itec_id";
+
+            //Roles combobox
+            string roleQuery = "SELECT role_id, role_name FROM roles";
+            DataTable roleData = DatabaseHelper.GetData(roleQuery);
+            cmbRole.DataSource = roleData;
+            cmbRole.DisplayMember = "role_name";
+            cmbRole.ValueMember = "role_id";
+        }
+
+        
     }
 }
