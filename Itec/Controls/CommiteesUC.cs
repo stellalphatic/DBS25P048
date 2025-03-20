@@ -32,9 +32,12 @@ namespace Itec.Controls
                 dataGridView1.Rows.Add(
                     committee.CommitteeId,
                     committee.ItecId,
+                    committee.Year,
                     committee.CommitteeName
                 );
             }
+            dataGridView1.Columns["CommitteeId"].Visible = false;
+            dataGridView1.Columns["ItecId"].Visible = false;
         }
 
         private void PopulateComboboxes()
@@ -46,7 +49,8 @@ namespace Itec.Controls
             cmbItec.ValueMember = "itec_id";
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
+        //Insert Button
+        private void button1_Click(object sender, EventArgs e)
         {
             var newCommittee = new Committee
             {
@@ -64,8 +68,8 @@ namespace Itec.Controls
                 MessageBox.Show($"Error adding committee: {ex.Message}");
             }
         }
-
-        private void UpdateBtn_Click(object sender, EventArgs e)
+        //Update Button
+        private void button3_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0) return;
 
@@ -88,8 +92,8 @@ namespace Itec.Controls
                 MessageBox.Show($"Error updating committee: {ex.Message}");
             }
         }
-
-        private void DeleteBtn_Click(object sender, EventArgs e)
+        //Delete Button
+        private void button2_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0) return;
 
@@ -98,14 +102,12 @@ namespace Itec.Controls
             try
             {
                 CommitteeDL.DeleteCommittee(committeeId);
-                LoadCommittees(); 
+                LoadCommittees();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error deleting committee: {ex.Message}");
             }
         }
-
-
     }
 }
