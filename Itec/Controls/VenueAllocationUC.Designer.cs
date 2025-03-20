@@ -44,7 +44,9 @@
             dataGridView1 = new DataGridView();
             Allocation_id = new DataGridViewTextBoxColumn();
             Event_id = new DataGridViewTextBoxColumn();
+            EventName = new DataGridViewTextBoxColumn();
             Venue_id = new DataGridViewTextBoxColumn();
+            VenueName = new DataGridViewTextBoxColumn();
             Assigned_date = new DataGridViewTextBoxColumn();
             Assigned_time = new DataGridViewTextBoxColumn();
             MainPanel.SuspendLayout();
@@ -82,7 +84,7 @@
             dtpTime.ShowUpDown = true;
             dtpTime.Size = new Size(200, 23);
             dtpTime.TabIndex = 36;
-            dtpTime.Value = new DateTime(2025, 3, 16, 7, 26, 0, 0);
+            dtpTime.Value = new DateTime(2025, 3, 20, 7, 26, 0, 0);
             // 
             // label1
             // 
@@ -97,7 +99,7 @@
             // 
             // dtpDate
             // 
-            dtpDate.CustomFormat = "yyyy-MM-dd";
+            dtpDate.CustomFormat = "yyyy-mm-dd";
             dtpDate.Format = DateTimePickerFormat.Custom;
             dtpDate.Location = new Point(161, 164);
             dtpDate.Name = "dtpDate";
@@ -206,7 +208,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Allocation_id, Event_id, Venue_id, Assigned_date, Assigned_time });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Allocation_id, Event_id, EventName, Venue_id, VenueName, Assigned_date, Assigned_time });
             dataGridView1.Location = new Point(409, 30);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(543, 291);
@@ -222,10 +224,20 @@
             Event_id.HeaderText = "Event_id";
             Event_id.Name = "Event_id";
             // 
+            // EventName
+            // 
+            EventName.HeaderText = "Event";
+            EventName.Name = "EventName";
+            // 
             // Venue_id
             // 
             Venue_id.HeaderText = "Venue_id";
             Venue_id.Name = "Venue_id";
+            // 
+            // VenueName
+            // 
+            VenueName.HeaderText = "Venue";
+            VenueName.Name = "VenueName";
             // 
             // Assigned_date
             // 
@@ -268,7 +280,9 @@
         private DateTimePicker dtpTime;
         private DataGridViewTextBoxColumn Allocation_id;
         private DataGridViewTextBoxColumn Event_id;
+        private DataGridViewTextBoxColumn EventName;
         private DataGridViewTextBoxColumn Venue_id;
+        private DataGridViewTextBoxColumn VenueName;
         private DataGridViewTextBoxColumn Assigned_date;
         private DataGridViewTextBoxColumn Assigned_time;
     }
