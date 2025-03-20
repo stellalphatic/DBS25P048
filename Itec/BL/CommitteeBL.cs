@@ -11,6 +11,16 @@ namespace Itec.BL
     {
         public int CommitteeId;
         public int? ItecId;
+        public int Year; //ref
         public string CommitteeName;
+    }
+    public class CommitteeMember
+    {
+        public int MemberId { get; set; }
+        public int CommitteeId { get; set; } //Foreign
+        public string Name { get; set; }
+        public int? RoleId { get; set; } //Foreign
+        public string CommitteeName { get; set; } //Reference
+        public string RoleName { get; set; } //Reference
     }
 }
