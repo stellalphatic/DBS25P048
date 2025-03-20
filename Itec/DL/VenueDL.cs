@@ -65,7 +65,11 @@ namespace Itec.DL
         public static List<VenueAllocation> GetAllVenueAllocations()
         {
             List<VenueAllocation> allocations = new List<VenueAllocation>();
-            string query = "SELECT * FROM venue_allocations";
+            string query = "SELECT va.venue_allocation_id,va.event_id, va.venue_id, va.assigned_date," +
+                " va.assigned_time, v.venue_name,ie.event_name" +
+                "  FROM venue_allocations va " +
+                " LEFT JOIN venues v on v.venue_id=va.venue_id" +
+                " LEFT JOIN itec_events ie on ie.event_id=va.event_id";
             DataTable dt = DatabaseHelper.GetData(query);
 
             foreach (DataRow row in dt.Rows)
@@ -75,6 +79,8 @@ namespace Itec.DL
                     VenueAllocationId = Convert.ToInt32(row["venue_allocation_id"]),
                     EventId = Convert.ToInt32(row["event_id"]),
                     VenueId = Convert.ToInt32(row["venue_id"]),
+                    VenueName= row["venue_name"].ToString(),
+                    EventName = row["event_name"].ToString(),
                     AssignedDate = Convert.ToDateTime(row["assigned_date"]),
                     AssignedTime = TimeSpan.Parse(row["assigned_time"].ToString())
                 });
@@ -86,9 +92,11 @@ namespace Itec.DL
         public static void AddVenueAllocation(VenueAllocation allocation)
         {
             string query = $@"INSERT INTO venue_allocations(event_id, venue_id, assigned_date, assigned_time) 
-                         VALUES ({allocation.EventId}, {allocation.VenueId}, 
-                                 '{allocation.AssignedDate:yyyy-MM-dd}', 
-                                 '{allocation.AssignedTime:hh\\:mm\\:ss}')";
+                         VALUES ({allocation.EventId}, {allocation.VenueId},'{allocation.AssignedDate:yyyy-MM-dd}','{allocation.AssignedTime:hh\\:mm\\:ss}')";
+            
+            // Log the query for debugging
+            Console.WriteLine("Executing Query: " + query);
+
             DatabaseHelper.ExecuteQuery(query);
         }
 
