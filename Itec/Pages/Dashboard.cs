@@ -8,75 +8,121 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using Itec.Controls;
 using Itec.Pages;
 
 namespace Itec
 {
     public partial class Dashboard : Form
     {
-
+        Controls.DashboardUC dashboardUC;
+        Controls.EditionsUC editionsUC;
+        Controls.CommitteeMembersUC committee;
+        Controls.FinancesUC financesUC;
+        Controls.DutiesUC dutiesUC;
+        Controls.ReportUC reportUC;
+        Controls.VenuesUC venuesUC;
+        Controls.EventsManageUC eventsManageUC;
+        Controls.ParticipantsUC participantsUC;
+        Reports.MainForm mainReport;
         public Dashboard()
         {
             InitializeComponent();
+            dashboardUC = new DashboardUC();
+            editionsUC = new EditionsUC();
+            committee = new CommitteeMembersUC();
+            financesUC = new FinancesUC();
+            dutiesUC = new DutiesUC();
+            reportUC = new ReportUC();
+            venuesUC = new VenuesUC();
+            eventsManageUC = new EventsManageUC();
+            participantsUC = new ParticipantsUC();
+            mainReport= new Reports.MainForm();
         }
 
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(dashboardUC);
+            dashboardUC.Dock = DockStyle.Fill;
         }
+
+        //Navigation buttons
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
-            Form dashboard = new Dashboard();
-            dashboard.Show();
-            this.Hide();
-        }
-
-        private void CommiteesBtn_Click(object sender, EventArgs e)
-        {
-            Form commitees = new Commitees();
-            commitees.Show();
-            this.Hide();
-        }
-
-        private void VenuesBtn_Click(object sender, EventArgs e)
-        {
-            NavigationHelper.NavigateTo(this, new Venues());
-        }
-
-        private void ReportBtn_Click(object sender, EventArgs e)
-        {
-            NavigationHelper.NavigateTo(this, new Report());
-        }
-
-        private void FinancesBtn_Click(object sender, EventArgs e)
-        {
-            NavigationHelper.NavigateTo(this, new Finances());
-        }
-
-        private void ParticipantsBtn_Click(object sender, EventArgs e)
-        {
-            NavigationHelper.NavigateTo(this, new Participants());
+          
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(dashboardUC);
+            dashboardUC.Dock = DockStyle.Fill;
         }
 
         private void EventsBtn_Click(object sender, EventArgs e)
         {
-            NavigationHelper.NavigateTo(this, new EventsManage());
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(eventsManageUC);
+            eventsManageUC.Dock = DockStyle.Fill;
+
         }
 
-        private void EditionsBtn_Click(object sender, EventArgs e)
+        private void ParticipantsBtn_Click(object sender, EventArgs e)
         {
-            NavigationHelper.NavigateTo(this, new Editions());
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(participantsUC);
+            participantsUC.Dock = DockStyle.Fill;
+        }
+
+        private void VenuesBtn_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(venuesUC);
+            venuesUC.Dock = DockStyle.Fill;
+        }
+
+        private void CommiteesBtn_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(committee);
+            committee.Dock = DockStyle.Fill;
+        }
+
+        private void FinancesBtn_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(financesUC);
+            financesUC.Dock = DockStyle.Fill;
         }
 
         private void DutiesBtn_Click(object sender, EventArgs e)
         {
-            NavigationHelper.NavigateTo(this, new Duties());
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(dutiesUC);
+            dutiesUC.Dock = DockStyle.Fill;
+        }
+
+        private void EditionsBtn_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(editionsUC);
+            editionsUC.Dock = DockStyle.Fill;
+        }
+
+        private void ReportBtn_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(mainReport);
+            mainReport.Dock = DockStyle.Fill;
+
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
+            NavigationHelper.NavigateTo(this, new LoginPage());
+        }
+        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
             Application.Exit();
         }
+
     }
 }

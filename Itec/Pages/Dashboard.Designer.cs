@@ -30,7 +30,6 @@
         private void InitializeComponent()
         {
             MainPanel = new Panel();
-            panel1 = new Panel();
             label1 = new Label();
             sidePanel = new Panel();
             DutiesBtn = new FontAwesome.Sharp.IconButton();
@@ -43,8 +42,6 @@
             EventsBtn = new FontAwesome.Sharp.IconButton();
             CommiteesBtn = new FontAwesome.Sharp.IconButton();
             DashboardBtn = new FontAwesome.Sharp.IconButton();
-            label2 = new Label();
-            panel1.SuspendLayout();
             sidePanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,20 +49,12 @@
             // 
             MainPanel.BackColor = SystemColors.ButtonFace;
             MainPanel.Dock = DockStyle.Fill;
-            MainPanel.Location = new Point(161, 49);
+            MainPanel.Location = new Point(161, 0);
             MainPanel.Name = "MainPanel";
-            MainPanel.Size = new Size(982, 495);
+            MainPanel.Size = new Size(982, 544);
             MainPanel.TabIndex = 10;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = SystemColors.Highlight;
-            panel1.Controls.Add(label2);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(161, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(982, 49);
-            panel1.TabIndex = 8;
+          
+            MainPanel.Visible= true;
             // 
             // label1
             // 
@@ -120,6 +109,7 @@
             DutiesBtn.TabIndex = 8;
             DutiesBtn.Text = "Duties";
             DutiesBtn.UseVisualStyleBackColor = false;
+            DutiesBtn.Click += DutiesBtn_Click;
             // 
             // LogoutBtn
             // 
@@ -142,6 +132,7 @@
             LogoutBtn.TabIndex = 8;
             LogoutBtn.Text = "Logout";
             LogoutBtn.UseVisualStyleBackColor = false;
+            LogoutBtn.Click += LogoutBtn_Click;
             // 
             // ReportBtn
             // 
@@ -164,6 +155,7 @@
             ReportBtn.TabIndex = 7;
             ReportBtn.Text = "Report";
             ReportBtn.UseVisualStyleBackColor = false;
+            ReportBtn.Click += ReportBtn_Click;
             // 
             // FinancesBtn
             // 
@@ -186,6 +178,7 @@
             FinancesBtn.TabIndex = 6;
             FinancesBtn.Text = "Finances";
             FinancesBtn.UseVisualStyleBackColor = false;
+            FinancesBtn.Click += FinancesBtn_Click;
             // 
             // EditionsBtn
             // 
@@ -208,6 +201,7 @@
             EditionsBtn.TabIndex = 5;
             EditionsBtn.Text = "Editions";
             EditionsBtn.UseVisualStyleBackColor = false;
+            EditionsBtn.Click += EditionsBtn_Click;
             // 
             // VenuesBtn
             // 
@@ -230,6 +224,7 @@
             VenuesBtn.TabIndex = 4;
             VenuesBtn.Text = "Venues";
             VenuesBtn.UseVisualStyleBackColor = false;
+            VenuesBtn.Click += VenuesBtn_Click;
             // 
             // ParticipantsBtn
             // 
@@ -252,6 +247,7 @@
             ParticipantsBtn.TabIndex = 3;
             ParticipantsBtn.Text = "Participants";
             ParticipantsBtn.UseVisualStyleBackColor = false;
+            ParticipantsBtn.Click += ParticipantsBtn_Click;
             // 
             // EventsBtn
             // 
@@ -274,6 +270,7 @@
             EventsBtn.TabIndex = 2;
             EventsBtn.Text = "Events";
             EventsBtn.UseVisualStyleBackColor = false;
+            EventsBtn.Click += EventsBtn_Click;
             // 
             // CommiteesBtn
             // 
@@ -296,6 +293,7 @@
             CommiteesBtn.TabIndex = 1;
             CommiteesBtn.Text = "Commitees";
             CommiteesBtn.UseVisualStyleBackColor = false;
+            CommiteesBtn.Click += CommiteesBtn_Click;
             // 
             // DashboardBtn
             // 
@@ -318,17 +316,7 @@
             DashboardBtn.TabIndex = 0;
             DashboardBtn.Text = "Dashboard";
             DashboardBtn.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Gill Sans MT", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(423, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(118, 30);
-            label2.TabIndex = 4;
-            label2.Text = "Dashboard";
+            DashboardBtn.Click += DashboardBtn_Click;
             // 
             // Dashboard
             // 
@@ -336,23 +324,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1143, 544);
             Controls.Add(MainPanel);
-            Controls.Add(panel1);
             Controls.Add(sidePanel);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Dashboard";
             Text = "Dashboard";
             Load += Dashboard_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             sidePanel.ResumeLayout(false);
             sidePanel.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private UIclasses.RoundedPanel roundedPanel1;
+
         private Panel MainPanel;
-        private Panel panel1;
         private Label label1;
         private Panel sidePanel;
         private FontAwesome.Sharp.IconButton DutiesBtn;
@@ -365,6 +349,5 @@
         private FontAwesome.Sharp.IconButton EventsBtn;
         private FontAwesome.Sharp.IconButton CommiteesBtn;
         private FontAwesome.Sharp.IconButton DashboardBtn;
-        private Label label2;
     }
 }
