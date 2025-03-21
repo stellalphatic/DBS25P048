@@ -29,10 +29,22 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            FinancesBtn = new Button();
+            SponsorsBtn = new Button();
             label2 = new Label();
             MainPanel = new Panel();
-            ToEntityIdtxt = new TextBox();
-            FromEntityIdtxt = new TextBox();
+            label14 = new Label();
+            dtpDate = new DateTimePicker();
+            label13 = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            Balancelbl = new Label();
+            Expenseslbl = new Label();
+            Incomelbl = new Label();
+            GenerateReportBtn = new Button();
+            cmbToEntity = new ComboBox();
+            cmbFromEntity = new ComboBox();
+            Amounttxt = new NumericUpDown();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
@@ -46,33 +58,32 @@
             label1 = new Label();
             label5 = new Label();
             Descriptiontxt = new RichTextBox();
-            Amounttxt = new TextBox();
             cmbItec = new ComboBox();
             cmbEvent = new ComboBox();
-            button4 = new Button();
             UpdateBtn = new Button();
             DeleteBtn = new Button();
             AddBtn = new Button();
             dataGridView1 = new DataGridView();
-            Tx_id = new DataGridViewTextBoxColumn();
-            ItecID = new DataGridViewTextBoxColumn();
-            EventID = new DataGridViewTextBoxColumn();
-            TypeID = new DataGridViewTextBoxColumn();
-            Amount = new DataGridViewTextBoxColumn();
-            FromType = new DataGridViewTextBoxColumn();
-            FromID = new DataGridViewTextBoxColumn();
-            ToType = new DataGridViewTextBoxColumn();
-            To_id = new DataGridViewTextBoxColumn();
+            TransactionId = new DataGridViewTextBoxColumn();
+            ItecYear = new DataGridViewTextBoxColumn();
+            EventName = new DataGridViewTextBoxColumn();
+            FinanceType = new DataGridViewTextBoxColumn();
+            amount12 = new DataGridViewTextBoxColumn();
+            From = new DataGridViewTextBoxColumn();
+            Toentity = new DataGridViewTextBoxColumn();
             Description = new DataGridViewTextBoxColumn();
             Date = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             MainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Amounttxt).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.Highlight;
+            panel1.Controls.Add(FinancesBtn);
+            panel1.Controls.Add(SponsorsBtn);
             panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -80,12 +91,34 @@
             panel1.Size = new Size(982, 49);
             panel1.TabIndex = 9;
             // 
+            // FinancesBtn
+            // 
+            FinancesBtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FinancesBtn.Location = new Point(747, 13);
+            FinancesBtn.Name = "FinancesBtn";
+            FinancesBtn.Size = new Size(205, 30);
+            FinancesBtn.TabIndex = 31;
+            FinancesBtn.Text = "Finances Management";
+            FinancesBtn.UseVisualStyleBackColor = true;
+            FinancesBtn.Click += FinancesBtn_Click;
+            // 
+            // SponsorsBtn
+            // 
+            SponsorsBtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SponsorsBtn.Location = new Point(549, 13);
+            SponsorsBtn.Name = "SponsorsBtn";
+            SponsorsBtn.Size = new Size(166, 30);
+            SponsorsBtn.TabIndex = 30;
+            SponsorsBtn.Text = "Sponsors";
+            SponsorsBtn.UseVisualStyleBackColor = true;
+            SponsorsBtn.Click += SponsorsBtn_Click;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Gill Sans MT", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(247, 9);
+            label2.Location = new Point(17, 16);
             label2.Name = "label2";
             label2.Size = new Size(459, 30);
             label2.TabIndex = 7;
@@ -94,8 +127,18 @@
             // MainPanel
             // 
             MainPanel.BackColor = SystemColors.ButtonFace;
-            MainPanel.Controls.Add(ToEntityIdtxt);
-            MainPanel.Controls.Add(FromEntityIdtxt);
+            MainPanel.Controls.Add(label14);
+            MainPanel.Controls.Add(dtpDate);
+            MainPanel.Controls.Add(label13);
+            MainPanel.Controls.Add(label12);
+            MainPanel.Controls.Add(label11);
+            MainPanel.Controls.Add(Balancelbl);
+            MainPanel.Controls.Add(Expenseslbl);
+            MainPanel.Controls.Add(Incomelbl);
+            MainPanel.Controls.Add(GenerateReportBtn);
+            MainPanel.Controls.Add(cmbToEntity);
+            MainPanel.Controls.Add(cmbFromEntity);
+            MainPanel.Controls.Add(Amounttxt);
             MainPanel.Controls.Add(label10);
             MainPanel.Controls.Add(label9);
             MainPanel.Controls.Add(label8);
@@ -109,10 +152,8 @@
             MainPanel.Controls.Add(label1);
             MainPanel.Controls.Add(label5);
             MainPanel.Controls.Add(Descriptiontxt);
-            MainPanel.Controls.Add(Amounttxt);
             MainPanel.Controls.Add(cmbItec);
             MainPanel.Controls.Add(cmbEvent);
-            MainPanel.Controls.Add(button4);
             MainPanel.Controls.Add(UpdateBtn);
             MainPanel.Controls.Add(DeleteBtn);
             MainPanel.Controls.Add(AddBtn);
@@ -123,26 +164,134 @@
             MainPanel.Size = new Size(982, 495);
             MainPanel.TabIndex = 12;
             // 
-            // ToEntityIdtxt
+            // label14
             // 
-            ToEntityIdtxt.Location = new Point(107, 323);
-            ToEntityIdtxt.Name = "ToEntityIdtxt";
-            ToEntityIdtxt.Size = new Size(114, 23);
-            ToEntityIdtxt.TabIndex = 56;
+            label14.AutoSize = true;
+            label14.Cursor = Cursors.Cross;
+            label14.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.Location = new Point(17, 334);
+            label14.Name = "label14";
+            label14.Size = new Size(45, 20);
+            label14.TabIndex = 68;
+            label14.Text = "Date:";
             // 
-            // FromEntityIdtxt
+            // dtpDate
             // 
-            FromEntityIdtxt.Location = new Point(107, 248);
-            FromEntityIdtxt.Name = "FromEntityIdtxt";
-            FromEntityIdtxt.Size = new Size(114, 23);
-            FromEntityIdtxt.TabIndex = 55;
+            dtpDate.Location = new Point(107, 331);
+            dtpDate.Name = "dtpDate";
+            dtpDate.Size = new Size(200, 23);
+            dtpDate.TabIndex = 67;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Cursor = Cursors.Cross;
+            label13.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(558, 432);
+            label13.Name = "label13";
+            label13.Size = new Size(66, 20);
+            label13.TabIndex = 66;
+            label13.Text = "Balance:";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Cursor = Cursors.Cross;
+            label12.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.Location = new Point(558, 401);
+            label12.Name = "label12";
+            label12.Size = new Size(75, 20);
+            label12.TabIndex = 65;
+            label12.Text = "Expenses:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Cursor = Cursors.Cross;
+            label11.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Location = new Point(558, 365);
+            label11.Name = "label11";
+            label11.Size = new Size(63, 20);
+            label11.TabIndex = 64;
+            label11.Text = "Income:";
+            // 
+            // Balancelbl
+            // 
+            Balancelbl.AutoSize = true;
+            Balancelbl.Cursor = Cursors.Cross;
+            Balancelbl.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Balancelbl.Location = new Point(686, 432);
+            Balancelbl.Name = "Balancelbl";
+            Balancelbl.Size = new Size(52, 20);
+            Balancelbl.TabIndex = 63;
+            Balancelbl.Text = "Rs0.00";
+            // 
+            // Expenseslbl
+            // 
+            Expenseslbl.AutoSize = true;
+            Expenseslbl.Cursor = Cursors.Cross;
+            Expenseslbl.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Expenseslbl.Location = new Point(686, 401);
+            Expenseslbl.Name = "Expenseslbl";
+            Expenseslbl.Size = new Size(52, 20);
+            Expenseslbl.TabIndex = 62;
+            Expenseslbl.Text = "Rs0.00";
+            // 
+            // Incomelbl
+            // 
+            Incomelbl.AutoSize = true;
+            Incomelbl.Cursor = Cursors.Cross;
+            Incomelbl.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Incomelbl.Location = new Point(686, 366);
+            Incomelbl.Name = "Incomelbl";
+            Incomelbl.Size = new Size(52, 20);
+            Incomelbl.TabIndex = 61;
+            Incomelbl.Text = "Rs0.00";
+            Incomelbl.Click += label11_Click;
+            // 
+            // GenerateReportBtn
+            // 
+            GenerateReportBtn.BackColor = SystemColors.ActiveCaption;
+            GenerateReportBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            GenerateReportBtn.Location = new Point(382, 323);
+            GenerateReportBtn.Name = "GenerateReportBtn";
+            GenerateReportBtn.Size = new Size(158, 31);
+            GenerateReportBtn.TabIndex = 60;
+            GenerateReportBtn.Text = "Generate Report:";
+            GenerateReportBtn.UseVisualStyleBackColor = false;
+            GenerateReportBtn.Click += GenerateReportBtn_Click;
+            // 
+            // cmbToEntity
+            // 
+            cmbToEntity.FormattingEnabled = true;
+            cmbToEntity.Items.AddRange(new object[] { "1", "2", "3" });
+            cmbToEntity.Location = new Point(106, 296);
+            cmbToEntity.Name = "cmbToEntity";
+            cmbToEntity.Size = new Size(114, 23);
+            cmbToEntity.TabIndex = 59;
+            // 
+            // cmbFromEntity
+            // 
+            cmbFromEntity.FormattingEnabled = true;
+            cmbFromEntity.Items.AddRange(new object[] { "1", "2", "3" });
+            cmbFromEntity.Location = new Point(106, 221);
+            cmbFromEntity.Name = "cmbFromEntity";
+            cmbFromEntity.Size = new Size(114, 23);
+            cmbFromEntity.TabIndex = 58;
+            // 
+            // Amounttxt
+            // 
+            Amounttxt.Location = new Point(107, 134);
+            Amounttxt.Name = "Amounttxt";
+            Amounttxt.Size = new Size(120, 23);
+            Amounttxt.TabIndex = 57;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Cursor = Cursors.Cross;
             label10.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(17, 322);
+            label10.Location = new Point(16, 299);
             label10.Name = "label10";
             label10.Size = new Size(50, 20);
             label10.TabIndex = 54;
@@ -153,7 +302,7 @@
             label9.AutoSize = true;
             label9.Cursor = Cursors.Cross;
             label9.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(16, 286);
+            label9.Location = new Point(16, 258);
             label9.Name = "label9";
             label9.Size = new Size(65, 20);
             label9.TabIndex = 53;
@@ -164,7 +313,7 @@
             label8.AutoSize = true;
             label8.Cursor = Cursors.Cross;
             label8.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(16, 247);
+            label8.Location = new Point(17, 220);
             label8.Name = "label8";
             label8.Size = new Size(68, 20);
             label8.TabIndex = 52;
@@ -175,17 +324,18 @@
             label4.AutoSize = true;
             label4.Cursor = Cursors.Cross;
             label4.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(16, 208);
+            label4.Location = new Point(16, 176);
             label4.Name = "label4";
             label4.Size = new Size(85, 20);
             label4.TabIndex = 51;
             label4.Text = "From Type:";
+            label4.Click += label4_Click;
             // 
             // cmbToEntityType
             // 
             cmbToEntityType.FormattingEnabled = true;
             cmbToEntityType.Items.AddRange(new object[] { "1", "2", "3" });
-            cmbToEntityType.Location = new Point(107, 287);
+            cmbToEntityType.Location = new Point(107, 255);
             cmbToEntityType.Name = "cmbToEntityType";
             cmbToEntityType.Size = new Size(114, 23);
             cmbToEntityType.TabIndex = 50;
@@ -194,7 +344,7 @@
             // 
             cmbFromEntityType.FormattingEnabled = true;
             cmbFromEntityType.Items.AddRange(new object[] { "1", "2", "3" });
-            cmbFromEntityType.Location = new Point(106, 205);
+            cmbFromEntityType.Location = new Point(108, 177);
             cmbFromEntityType.Name = "cmbFromEntityType";
             cmbFromEntityType.Size = new Size(114, 23);
             cmbFromEntityType.TabIndex = 49;
@@ -204,7 +354,7 @@
             label7.AutoSize = true;
             label7.Cursor = Cursors.Cross;
             label7.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(16, 116);
+            label7.Location = new Point(16, 91);
             label7.Name = "label7";
             label7.Size = new Size(45, 20);
             label7.TabIndex = 48;
@@ -214,7 +364,7 @@
             // 
             cmbType.FormattingEnabled = true;
             cmbType.Items.AddRange(new object[] { "1", "2", "3" });
-            cmbType.Location = new Point(106, 116);
+            cmbType.Location = new Point(106, 92);
             cmbType.Name = "cmbType";
             cmbType.Size = new Size(114, 23);
             cmbType.TabIndex = 47;
@@ -224,7 +374,7 @@
             label6.AutoSize = true;
             label6.Cursor = Cursors.Cross;
             label6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(16, 365);
+            label6.Location = new Point(16, 376);
             label6.Name = "label6";
             label6.Size = new Size(91, 20);
             label6.TabIndex = 46;
@@ -235,7 +385,7 @@
             label3.AutoSize = true;
             label3.Cursor = Cursors.Cross;
             label3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(16, 70);
+            label3.Location = new Point(17, 53);
             label3.Name = "label3";
             label3.Size = new Size(51, 20);
             label3.TabIndex = 44;
@@ -246,7 +396,7 @@
             label1.AutoSize = true;
             label1.Cursor = Cursors.Cross;
             label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(16, 32);
+            label1.Location = new Point(16, 15);
             label1.Name = "label1";
             label1.Size = new Size(37, 20);
             label1.TabIndex = 43;
@@ -257,7 +407,7 @@
             label5.AutoSize = true;
             label5.Cursor = Cursors.Cross;
             label5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(16, 166);
+            label5.Location = new Point(17, 132);
             label5.Name = "label5";
             label5.Size = new Size(68, 20);
             label5.TabIndex = 42;
@@ -265,24 +415,18 @@
             // 
             // Descriptiontxt
             // 
-            Descriptiontxt.Location = new Point(106, 366);
+            Descriptiontxt.Location = new Point(113, 376);
             Descriptiontxt.Name = "Descriptiontxt";
             Descriptiontxt.Size = new Size(158, 55);
             Descriptiontxt.TabIndex = 41;
             Descriptiontxt.Text = "";
-            // 
-            // Amounttxt
-            // 
-            Amounttxt.Location = new Point(106, 163);
-            Amounttxt.Name = "Amounttxt";
-            Amounttxt.Size = new Size(114, 23);
-            Amounttxt.TabIndex = 40;
+            Descriptiontxt.TextChanged += Descriptiontxt_TextChanged;
             // 
             // cmbItec
             // 
             cmbItec.FormattingEnabled = true;
             cmbItec.Items.AddRange(new object[] { "1", "2", "3" });
-            cmbItec.Location = new Point(106, 32);
+            cmbItec.Location = new Point(106, 16);
             cmbItec.Name = "cmbItec";
             cmbItec.Size = new Size(114, 23);
             cmbItec.TabIndex = 37;
@@ -291,27 +435,16 @@
             // 
             cmbEvent.FormattingEnabled = true;
             cmbEvent.Items.AddRange(new object[] { "1", "2", "3" });
-            cmbEvent.Location = new Point(106, 70);
+            cmbEvent.Location = new Point(106, 54);
             cmbEvent.Name = "cmbEvent";
             cmbEvent.Size = new Size(114, 23);
             cmbEvent.TabIndex = 33;
-            // 
-            // button4
-            // 
-            button4.BackColor = SystemColors.ActiveCaption;
-            button4.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.Location = new Point(607, 392);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 31);
-            button4.TabIndex = 16;
-            button4.Text = "Search";
-            button4.UseVisualStyleBackColor = false;
             // 
             // UpdateBtn
             // 
             UpdateBtn.BackColor = SystemColors.ActiveCaption;
             UpdateBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            UpdateBtn.Location = new Point(527, 332);
+            UpdateBtn.Location = new Point(310, 448);
             UpdateBtn.Name = "UpdateBtn";
             UpdateBtn.Size = new Size(75, 31);
             UpdateBtn.TabIndex = 15;
@@ -323,7 +456,7 @@
             // 
             DeleteBtn.BackColor = SystemColors.ActiveCaption;
             DeleteBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            DeleteBtn.Location = new Point(431, 386);
+            DeleteBtn.Location = new Point(178, 448);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(75, 31);
             DeleteBtn.TabIndex = 14;
@@ -335,7 +468,7 @@
             // 
             AddBtn.BackColor = SystemColors.ActiveCaption;
             AddBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AddBtn.Location = new Point(353, 332);
+            AddBtn.Location = new Point(32, 448);
             AddBtn.Name = "AddBtn";
             AddBtn.Size = new Size(75, 31);
             AddBtn.TabIndex = 13;
@@ -346,65 +479,50 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Tx_id, ItecID, EventID, TypeID, Amount, FromType, FromID, ToType, To_id, Description, Date });
-            dataGridView1.Location = new Point(235, 15);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { TransactionId, ItecYear, EventName, FinanceType, amount12, From, Toentity, Description, Date });
+            dataGridView1.Location = new Point(238, 15);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(743, 291);
+            dataGridView1.Size = new Size(741, 291);
             dataGridView1.TabIndex = 12;
             // 
-            // Tx_id
+            // TransactionId
             // 
-            Tx_id.HeaderText = "Tx_id";
-            Tx_id.Name = "Tx_id";
-            Tx_id.Width = 40;
+            TransactionId.HeaderText = "TransactionId";
+            TransactionId.Name = "TransactionId";
             // 
-            // ItecID
+            // ItecYear
             // 
-            ItecID.HeaderText = "ItecId";
-            ItecID.Name = "ItecID";
-            ItecID.Width = 40;
+            ItecYear.HeaderText = "ItecYear";
+            ItecYear.Name = "ItecYear";
+            ItecYear.Width = 50;
             // 
-            // EventID
+            // EventName
             // 
-            EventID.HeaderText = "EventID";
-            EventID.Name = "EventID";
-            EventID.Width = 50;
+            EventName.HeaderText = "EventName";
+            EventName.Name = "EventName";
+            EventName.Width = 85;
             // 
-            // TypeID
+            // FinanceType
             // 
-            TypeID.HeaderText = "TypeID";
-            TypeID.Name = "TypeID";
-            TypeID.Width = 50;
+            FinanceType.HeaderText = "FinanceType";
+            FinanceType.Name = "FinanceType";
+            FinanceType.Width = 85;
             // 
-            // Amount
+            // amount12
             // 
-            Amount.HeaderText = "Amount";
-            Amount.Name = "Amount";
-            Amount.Width = 80;
+            amount12.HeaderText = "Amount";
+            amount12.Name = "amount12";
+            amount12.Width = 80;
             // 
-            // FromType
+            // From
             // 
-            FromType.HeaderText = "FromType";
-            FromType.Name = "FromType";
-            FromType.Width = 80;
+            From.HeaderText = "From";
+            From.Name = "From";
             // 
-            // FromID
+            // Toentity
             // 
-            FromID.HeaderText = "FromID";
-            FromID.Name = "FromID";
-            FromID.Width = 50;
-            // 
-            // ToType
-            // 
-            ToType.HeaderText = "ToType";
-            ToType.Name = "ToType";
-            ToType.Width = 80;
-            // 
-            // To_id
-            // 
-            To_id.HeaderText = "To_id";
-            To_id.Name = "To_id";
-            To_id.Width = 50;
+            Toentity.HeaderText = "To";
+            Toentity.Name = "Toentity";
             // 
             // Description
             // 
@@ -415,7 +533,7 @@
             // 
             Date.HeaderText = "Date";
             Date.Name = "Date";
-            Date.Width = 80;
+            Date.Width = 70;
             // 
             // FinancesUC
             // 
@@ -429,6 +547,7 @@
             panel1.PerformLayout();
             MainPanel.ResumeLayout(false);
             MainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Amounttxt).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -445,31 +564,40 @@
         private Label label1;
         private Label label5;
         private RichTextBox Descriptiontxt;
-        private TextBox Amounttxt;
         private ComboBox cmbItec;
         private ComboBox cmbEvent;
-        private Button button4;
         private Button UpdateBtn;
         private Button DeleteBtn;
         private Button AddBtn;
         private DataGridView dataGridView1;
         private ComboBox cmbToEntityType;
         private ComboBox cmbFromEntityType;
-        private TextBox ToEntityIdtxt;
-        private TextBox FromEntityIdtxt;
         private Label label10;
         private Label label9;
         private Label label8;
         private Label label4;
-        private DataGridViewTextBoxColumn Tx_id;
-        private DataGridViewTextBoxColumn ItecID;
-        private DataGridViewTextBoxColumn EventID;
-        private DataGridViewTextBoxColumn TypeID;
-        private DataGridViewTextBoxColumn Amount;
-        private DataGridViewTextBoxColumn FromType;
-        private DataGridViewTextBoxColumn FromID;
-        private DataGridViewTextBoxColumn ToType;
-        private DataGridViewTextBoxColumn To_id;
+        private NumericUpDown Amounttxt;
+        private ComboBox cmbToEntity;
+        private ComboBox cmbFromEntity;
+        private Button VenuesBtn;
+        private Button SponsorsBtn;
+        private Button FinancesBtn;
+        private Label Expenseslbl;
+        private Label Incomelbl;
+        private Button GenerateReportBtn;
+        private Label label13;
+        private Label label12;
+        private Label label11;
+        private Label Balancelbl;
+        private DateTimePicker dtpDate;
+        private Label label14;
+        private DataGridViewTextBoxColumn TransactionId;
+        private DataGridViewTextBoxColumn ItecYear;
+        private DataGridViewTextBoxColumn EventName;
+        private DataGridViewTextBoxColumn FinanceType;
+        private DataGridViewTextBoxColumn amount12;
+        private DataGridViewTextBoxColumn From;
+        private DataGridViewTextBoxColumn Toentity;
         private DataGridViewTextBoxColumn Description;
         private DataGridViewTextBoxColumn Date;
     }
