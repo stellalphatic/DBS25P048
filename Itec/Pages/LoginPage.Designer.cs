@@ -37,9 +37,9 @@
             label4 = new Label();
             lblToast = new Label();
             label5 = new Label();
-            LoginUsername = new MaskedTextBox();
+            Usernametxt = new MaskedTextBox();
             label7 = new Label();
-            LoginPassword = new MaskedTextBox();
+            Passwordtxt = new MaskedTextBox();
             LoginBtn = new FontAwesome.Sharp.IconButton();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
@@ -122,9 +122,9 @@
             // 
             lblToast.BackColor = SystemColors.ActiveCaptionText;
             lblToast.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblToast.Location = new Point(501, 127);
+            lblToast.Location = new Point(450, 127);
             lblToast.Name = "lblToast";
-            lblToast.Size = new Size(100, 23);
+            lblToast.Size = new Size(223, 23);
             lblToast.TabIndex = 11;
             lblToast.Visible = false;
             // 
@@ -138,15 +138,14 @@
             label5.Size = new Size(104, 26);
             label5.TabIndex = 9;
             label5.Text = "Username:";
-            label5.Click += label5_Click;
             // 
-            // LoginUsername
+            // Usernametxt
             // 
-            LoginUsername.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LoginUsername.Location = new Point(155, 50);
-            LoginUsername.Name = "LoginUsername";
-            LoginUsername.Size = new Size(147, 27);
-            LoginUsername.TabIndex = 10;
+            Usernametxt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Usernametxt.Location = new Point(155, 50);
+            Usernametxt.Name = "Usernametxt";
+            Usernametxt.Size = new Size(147, 27);
+            Usernametxt.TabIndex = 10;
             // 
             // label7
             // 
@@ -159,14 +158,14 @@
             label7.TabIndex = 12;
             label7.Text = "Password:";
             // 
-            // LoginPassword
+            // Passwordtxt
             // 
-            LoginPassword.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LoginPassword.Location = new Point(155, 106);
-            LoginPassword.Name = "LoginPassword";
-            LoginPassword.Size = new Size(147, 27);
-            LoginPassword.TabIndex = 14;
-            LoginPassword.UseSystemPasswordChar = true;
+            Passwordtxt.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Passwordtxt.Location = new Point(155, 106);
+            Passwordtxt.Name = "Passwordtxt";
+            Passwordtxt.Size = new Size(147, 27);
+            Passwordtxt.TabIndex = 14;
+            Passwordtxt.UseSystemPasswordChar = true;
             // 
             // LoginBtn
             // 
@@ -204,9 +203,9 @@
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(iconButton1);
             panel1.Controls.Add(LoginBtn);
-            panel1.Controls.Add(LoginPassword);
+            panel1.Controls.Add(Passwordtxt);
             panel1.Controls.Add(label7);
-            panel1.Controls.Add(LoginUsername);
+            panel1.Controls.Add(Usernametxt);
             panel1.Controls.Add(label5);
             panel1.Location = new Point(382, 153);
             panel1.Name = "panel1";
@@ -232,7 +231,7 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "LoginPage";
             Text = "Form1";
-            Load += Form1_Load;
+            Load += LoginPage_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -250,9 +249,9 @@
         private Label label4;
         private Label lblToast;
         private Label label5;
-        private MaskedTextBox LoginUsername;
+        private MaskedTextBox Usernametxt;
         private Label label7;
-        private MaskedTextBox LoginPassword;
+        private MaskedTextBox Passwordtxt;
         private FontAwesome.Sharp.IconButton LoginBtn;
         private FontAwesome.Sharp.IconButton iconButton1;
         private Panel panel1;
