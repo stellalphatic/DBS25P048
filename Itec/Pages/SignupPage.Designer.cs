@@ -30,13 +30,13 @@
         {
             panel1 = new Panel();
             SignupBtn = new Button();
-            maskedTextBox4 = new MaskedTextBox();
-            maskedTextBox3 = new MaskedTextBox();
-            maskedTextBox2 = new MaskedTextBox();
+            ConfirmPassword = new MaskedTextBox();
+            Passwordtxt = new MaskedTextBox();
+            Emailtxt = new MaskedTextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            maskedTextBox1 = new MaskedTextBox();
+            Usernametxt = new MaskedTextBox();
             label1 = new Label();
             panel2 = new Panel();
             label5 = new Label();
@@ -48,17 +48,17 @@
             // 
             panel1.BackgroundImage = Properties.Resources.mysticpurple;
             panel1.Controls.Add(SignupBtn);
-            panel1.Controls.Add(maskedTextBox4);
-            panel1.Controls.Add(maskedTextBox3);
-            panel1.Controls.Add(maskedTextBox2);
+            panel1.Controls.Add(ConfirmPassword);
+            panel1.Controls.Add(Passwordtxt);
+            panel1.Controls.Add(Emailtxt);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(maskedTextBox1);
+            panel1.Controls.Add(Usernametxt);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(214, 88);
             panel1.Name = "panel1";
-            panel1.Size = new Size(369, 290);
+            panel1.Size = new Size(369, 294);
             panel1.TabIndex = 0;
             // 
             // SignupBtn
@@ -68,36 +68,37 @@
             SignupBtn.BackgroundImageLayout = ImageLayout.Stretch;
             SignupBtn.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SignupBtn.ForeColor = SystemColors.ButtonHighlight;
-            SignupBtn.Location = new Point(128, 228);
+            SignupBtn.Location = new Point(125, 229);
             SignupBtn.Name = "SignupBtn";
             SignupBtn.Size = new Size(99, 39);
             SignupBtn.TabIndex = 8;
             SignupBtn.Text = "Signup";
             SignupBtn.UseVisualStyleBackColor = false;
+            SignupBtn.Click += SignupBtn_Click;
             // 
-            // maskedTextBox4
+            // ConfirmPassword
             // 
-            maskedTextBox4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox4.Location = new Point(145, 171);
-            maskedTextBox4.Name = "maskedTextBox4";
-            maskedTextBox4.Size = new Size(144, 27);
-            maskedTextBox4.TabIndex = 7;
+            ConfirmPassword.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ConfirmPassword.Location = new Point(145, 168);
+            ConfirmPassword.Name = "ConfirmPassword";
+            ConfirmPassword.Size = new Size(144, 27);
+            ConfirmPassword.TabIndex = 7;
             // 
-            // maskedTextBox3
+            // Passwordtxt
             // 
-            maskedTextBox3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox3.Location = new Point(145, 123);
-            maskedTextBox3.Name = "maskedTextBox3";
-            maskedTextBox3.Size = new Size(144, 27);
-            maskedTextBox3.TabIndex = 6;
+            Passwordtxt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Passwordtxt.Location = new Point(145, 120);
+            Passwordtxt.Name = "Passwordtxt";
+            Passwordtxt.Size = new Size(144, 27);
+            Passwordtxt.TabIndex = 6;
             // 
-            // maskedTextBox2
+            // Emailtxt
             // 
-            maskedTextBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox2.Location = new Point(145, 73);
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(144, 27);
-            maskedTextBox2.TabIndex = 5;
+            Emailtxt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Emailtxt.Location = new Point(145, 73);
+            Emailtxt.Name = "Emailtxt";
+            Emailtxt.Size = new Size(144, 27);
+            Emailtxt.TabIndex = 5;
             // 
             // label4
             // 
@@ -105,11 +106,11 @@
             label4.BackColor = SystemColors.ActiveCaptionText;
             label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Transparent;
-            label4.Location = new Point(16, 170);
+            label4.Location = new Point(11, 168);
             label4.Name = "label4";
-            label4.Size = new Size(54, 25);
+            label4.Size = new Size(128, 25);
             label4.TabIndex = 4;
-            label4.Text = "Role:";
+            label4.Text = "Confirm Pass:";
             // 
             // label3
             // 
@@ -117,7 +118,7 @@
             label3.BackColor = SystemColors.ActiveCaptionText;
             label3.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(16, 122);
+            label3.Location = new Point(11, 119);
             label3.Name = "label3";
             label3.Size = new Size(96, 25);
             label3.TabIndex = 3;
@@ -135,13 +136,13 @@
             label2.TabIndex = 2;
             label2.Text = "Email:";
             // 
-            // maskedTextBox1
+            // Usernametxt
             // 
-            maskedTextBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox1.Location = new Point(145, 27);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(144, 27);
-            maskedTextBox1.TabIndex = 1;
+            Usernametxt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Usernametxt.Location = new Point(145, 27);
+            Usernametxt.Name = "Usernametxt";
+            Usernametxt.Size = new Size(144, 27);
+            Usernametxt.TabIndex = 1;
             // 
             // label1
             // 
@@ -190,6 +191,7 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "SignupPage";
             Text = "Signup";
+            Load += SignupPage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -200,14 +202,14 @@
         #endregion
 
         private Panel panel1;
-        private MaskedTextBox maskedTextBox4;
-        private MaskedTextBox maskedTextBox3;
+        private MaskedTextBox ConfirmPassword;
+        private MaskedTextBox Passwordtxt;
         private Label label4;
         private Label label3;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox Usernametxt;
         private Label label1;
         private Button SignupBtn;
-        private MaskedTextBox maskedTextBox2;
+        private MaskedTextBox Emailtxt;
         private Label label2;
         private Panel panel2;
         private Label label5;
