@@ -9,9 +9,9 @@ namespace Itec.BL
     public class Finance
     {
         public int TransactionId { get; set; }
-        public int? ItecId { get; set; }
+        public int ITECId { get; set; }
         public int? EventId { get; set; }
-        public int? TypeId { get; set; }
+        public int TypeId { get; set; }
         public decimal Amount { get; set; }
         public string FromEntityType { get; set; }
         public int FromEntityId { get; set; }
@@ -19,5 +19,18 @@ namespace Itec.BL
         public int ToEntityId { get; set; }
         public string Description { get; set; }
         public DateTime DateRecorded { get; set; }
+        //References
+        public string FinanceType { get; set; }
+        public string FromEntityName { get; set; }
+        public string ToEntityName { get; set; }
+        public string EventName { get; set; }
+        public string ITECYear { get; set; }
+    }
+    public class Sponsor
+    {
+        public int SponsorId { get; set; }
+        public string SponsorName { get; set; }
+        public string Contact { get; set; }
+        public decimal TotalAmount { get; set; }
     }
 }
