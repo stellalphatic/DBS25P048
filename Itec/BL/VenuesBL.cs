@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +18,8 @@ namespace Itec.BL
         public int VenueAllocationId;
         public int EventId;
         public int VenueId;
+        public string EventName; //Ref
+        public string VenueName; //Ref
         public DateTime AssignedDate;
         public TimeSpan AssignedTime;
     }
