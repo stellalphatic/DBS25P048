@@ -3,9 +3,9 @@ using Itec.DB;
 using System.Data;
 
 namespace Itec.DL
-    { 
-public static class FinancialDL
-{
+{ 
+  public static class FinancialDL
+  {
     public static List<Finance> GetAllTransactions()
     {
         List<Finance> transactions = new List<Finance>();
@@ -34,22 +34,22 @@ public static class FinancialDL
         {
             transactions.Add(new Finance
             {
-                TransactionId = Convert.ToInt32(row["transaction_id"]),
-                ITECId = Convert.ToInt32(row["itec_id"]),
-                EventId = row["event_id"] == DBNull.Value ? (int?)null : Convert.ToInt32(row["event_id"]),
-                TypeId = Convert.ToInt32(row["type_id"]),
-                Amount = Convert.ToDecimal(row["amount"]),
-                FromEntityType = row["from_entity_type"].ToString(),
-                FromEntityId = Convert.ToInt32(row["from_entity_id"]),
-                ToEntityType = row["to_entity_type"].ToString(),
-                ToEntityId = Convert.ToInt32(row["to_entity_id"]),
-                Description = row["description"].ToString(),
-                DateRecorded = Convert.ToDateTime(row["date_recorded"]),
-                FinanceType = row["finance_type"].ToString(),
-                FromEntityName = row["from_entity_name"].ToString(),
-                ToEntityName = row["to_entity_name"].ToString(),
-                EventName = row["event_name"] == DBNull.Value ? "" : row["event_name"].ToString(),
-                ITECYear = row["itec_year"].ToString()
+                TransactionId = SafeConvert.ToInt32(row["transaction_id"]),
+                ITECId = SafeConvert.ToInt32(row["itec_id"]),
+                EventId = SafeConvert.ToNullableInt32(row["event_id"]),
+                TypeId = SafeConvert.ToInt32(row["type_id"]),
+                Amount = SafeConvert.ToDecimal(row["amount"]),
+                FromEntityType = SafeConvert.ToString(row["from_entity_type"]),
+                FromEntityId = SafeConvert.ToInt32(row["from_entity_id"]),
+                ToEntityType = SafeConvert.ToString(row["to_entity_type"]),
+                ToEntityId = SafeConvert.ToInt32(row["to_entity_id"]),
+                Description = SafeConvert.ToString(row["description"]),
+                DateRecorded = SafeConvert.ToDateTime(row["date_recorded"]),
+                FinanceType = SafeConvert.ToString(row["finance_type"]),
+                FromEntityName = SafeConvert.ToString(row["from_entity_name"]),
+                ToEntityName = SafeConvert.ToString(row["to_entity_name"]),
+                EventName = SafeConvert.ToString(row["event_name"]),
+                ITECYear = SafeConvert.ToString(row["itec_year"])
             });
         }
         return transactions;
@@ -102,5 +102,32 @@ public static class FinancialDL
 
         DatabaseHelper.ExecuteQuery(query);
     }
-}
+  }
+    public static class SafeConvert
+    {
+        public static int ToInt32(object value)
+        {
+            return value == DBNull.Value ? 0 : Convert.ToInt32(value);
+        }
+
+        public static int? ToNullableInt32(object value)
+        {
+            return value == DBNull.Value ? null : (int?)Convert.ToInt32(value);
+        }
+
+        public static decimal ToDecimal(object value)
+        {
+            return value == DBNull.Value ? 0m : Convert.ToDecimal(value);
+        }
+
+        public static string ToString(object value)
+        {
+            return value == DBNull.Value ? string.Empty : Convert.ToString(value);
+        }
+
+        public static DateTime ToDateTime(object value)
+        {
+            return value == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(value);
+        }
+    }
 }
