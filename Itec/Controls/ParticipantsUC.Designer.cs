@@ -40,23 +40,22 @@
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
-            label3 = new Label();
             Contacttxt = new TextBox();
             Emailtxt = new TextBox();
             Nametxt = new TextBox();
-            ParticipantIDtxt = new TextBox();
-            SearchBtn = new Button();
             UpdateBtn = new Button();
             DeleteBtn = new Button();
             AddBtn = new Button();
             dataGridView1 = new DataGridView();
-            Participant_ID = new DataGridViewTextBoxColumn();
-            FullName = new DataGridViewTextBoxColumn();
-            Itec_ID = new DataGridViewTextBoxColumn();
+            ParticipantId = new DataGridViewTextBoxColumn();
+            Name = new DataGridViewTextBoxColumn();
+            ItecId = new DataGridViewTextBoxColumn();
+            ItecYear = new DataGridViewTextBoxColumn();
             Email = new DataGridViewTextBoxColumn();
             Contact = new DataGridViewTextBoxColumn();
             Institute = new DataGridViewTextBoxColumn();
-            Role_ID = new DataGridViewTextBoxColumn();
+            RoleId = new DataGridViewTextBoxColumn();
+            RoleName = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -95,12 +94,9 @@
             MainPanel.Controls.Add(label6);
             MainPanel.Controls.Add(label5);
             MainPanel.Controls.Add(label4);
-            MainPanel.Controls.Add(label3);
             MainPanel.Controls.Add(Contacttxt);
             MainPanel.Controls.Add(Emailtxt);
             MainPanel.Controls.Add(Nametxt);
-            MainPanel.Controls.Add(ParticipantIDtxt);
-            MainPanel.Controls.Add(SearchBtn);
             MainPanel.Controls.Add(UpdateBtn);
             MainPanel.Controls.Add(DeleteBtn);
             MainPanel.Controls.Add(AddBtn);
@@ -115,7 +111,7 @@
             // 
             cmbItec.FormattingEnabled = true;
             cmbItec.Items.AddRange(new object[] { "1", "2", "3" });
-            cmbItec.Location = new Point(133, 70);
+            cmbItec.Location = new Point(98, 7);
             cmbItec.Name = "cmbItec";
             cmbItec.Size = new Size(114, 23);
             cmbItec.TabIndex = 32;
@@ -124,7 +120,7 @@
             // 
             cmbRole.FormattingEnabled = true;
             cmbRole.Items.AddRange(new object[] { "1", "2", "3" });
-            cmbRole.Location = new Point(133, 237);
+            cmbRole.Location = new Point(96, 210);
             cmbRole.Name = "cmbRole";
             cmbRole.Size = new Size(114, 23);
             cmbRole.TabIndex = 31;
@@ -134,18 +130,18 @@
             label8.AutoSize = true;
             label8.Cursor = Cursors.Cross;
             label8.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(21, 237);
+            label8.Location = new Point(22, 213);
             label8.Name = "label8";
-            label8.Size = new Size(64, 20);
+            label8.Size = new Size(43, 20);
             label8.TabIndex = 30;
-            label8.Text = "Role_ID:";
+            label8.Text = "Role:";
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Cursor = Cursors.Cross;
             label9.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(21, 206);
+            label9.Location = new Point(22, 168);
             label9.Name = "label9";
             label9.Size = new Size(68, 20);
             label9.TabIndex = 29;
@@ -153,7 +149,7 @@
             // 
             // Institutetxt
             // 
-            Institutetxt.Location = new Point(133, 206);
+            Institutetxt.Location = new Point(96, 165);
             Institutetxt.Name = "Institutetxt";
             Institutetxt.Size = new Size(114, 23);
             Institutetxt.TabIndex = 27;
@@ -163,7 +159,7 @@
             label7.AutoSize = true;
             label7.Cursor = Cursors.Cross;
             label7.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(21, 176);
+            label7.Location = new Point(20, 126);
             label7.Name = "label7";
             label7.Size = new Size(65, 20);
             label7.TabIndex = 26;
@@ -174,7 +170,7 @@
             label6.AutoSize = true;
             label6.Cursor = Cursors.Cross;
             label6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(21, 144);
+            label6.Location = new Point(22, 93);
             label6.Name = "label6";
             label6.Size = new Size(50, 20);
             label6.TabIndex = 25;
@@ -185,7 +181,7 @@
             label5.AutoSize = true;
             label5.Cursor = Cursors.Cross;
             label5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(21, 105);
+            label5.Location = new Point(20, 50);
             label5.Name = "label5";
             label5.Size = new Size(54, 20);
             label5.TabIndex = 24;
@@ -196,67 +192,38 @@
             label4.AutoSize = true;
             label4.Cursor = Cursors.Cross;
             label4.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(21, 69);
+            label4.Location = new Point(20, 10);
             label4.Name = "label4";
-            label4.Size = new Size(58, 20);
+            label4.Size = new Size(37, 20);
             label4.TabIndex = 23;
-            label4.Text = "Itec_ID:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Cursor = Cursors.Cross;
-            label3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(21, 37);
-            label3.Name = "label3";
-            label3.Size = new Size(108, 20);
-            label3.TabIndex = 22;
-            label3.Text = "Participant_ID:";
+            label4.Text = "Itec:";
             // 
             // Contacttxt
             // 
-            Contacttxt.Location = new Point(133, 173);
+            Contacttxt.Location = new Point(98, 126);
             Contacttxt.Name = "Contacttxt";
             Contacttxt.Size = new Size(114, 23);
             Contacttxt.TabIndex = 21;
             // 
             // Emailtxt
             // 
-            Emailtxt.Location = new Point(133, 141);
+            Emailtxt.Location = new Point(98, 90);
             Emailtxt.Name = "Emailtxt";
             Emailtxt.Size = new Size(114, 23);
             Emailtxt.TabIndex = 20;
             // 
             // Nametxt
             // 
-            Nametxt.Location = new Point(133, 105);
+            Nametxt.Location = new Point(98, 47);
             Nametxt.Name = "Nametxt";
             Nametxt.Size = new Size(114, 23);
             Nametxt.TabIndex = 19;
-            // 
-            // ParticipantIDtxt
-            // 
-            ParticipantIDtxt.Location = new Point(133, 38);
-            ParticipantIDtxt.Name = "ParticipantIDtxt";
-            ParticipantIDtxt.Size = new Size(114, 23);
-            ParticipantIDtxt.TabIndex = 17;
-            // 
-            // SearchBtn
-            // 
-            SearchBtn.BackColor = SystemColors.ActiveCaption;
-            SearchBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SearchBtn.Location = new Point(214, 341);
-            SearchBtn.Name = "SearchBtn";
-            SearchBtn.Size = new Size(75, 31);
-            SearchBtn.TabIndex = 16;
-            SearchBtn.Text = "Search";
-            SearchBtn.UseVisualStyleBackColor = false;
             // 
             // UpdateBtn
             // 
             UpdateBtn.BackColor = SystemColors.ActiveCaption;
             UpdateBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            UpdateBtn.Location = new Point(79, 341);
+            UpdateBtn.Location = new Point(491, 335);
             UpdateBtn.Name = "UpdateBtn";
             UpdateBtn.Size = new Size(75, 31);
             UpdateBtn.TabIndex = 15;
@@ -268,7 +235,7 @@
             // 
             DeleteBtn.BackColor = SystemColors.ActiveCaption;
             DeleteBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            DeleteBtn.Location = new Point(133, 293);
+            DeleteBtn.Location = new Point(616, 335);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(75, 31);
             DeleteBtn.TabIndex = 14;
@@ -280,7 +247,7 @@
             // 
             AddBtn.BackColor = SystemColors.ActiveCaption;
             AddBtn.Font = new Font("Sitka Small", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AddBtn.Location = new Point(21, 293);
+            AddBtn.Location = new Point(322, 335);
             AddBtn.Name = "AddBtn";
             AddBtn.Size = new Size(75, 31);
             AddBtn.TabIndex = 13;
@@ -291,29 +258,34 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Participant_ID, FullName, Itec_ID, Email, Contact, Institute, Role_ID });
-            dataGridView1.Location = new Point(352, 6);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ParticipantId, Name, ItecId, ItecYear, Email, Contact, Institute, RoleId, RoleName });
+            dataGridView1.Location = new Point(272, 6);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(627, 291);
+            dataGridView1.Size = new Size(707, 291);
             dataGridView1.TabIndex = 12;
             // 
-            // Participant_ID
+            // ParticipantId
             // 
-            Participant_ID.HeaderText = "Participant_ID";
-            Participant_ID.MaxInputLength = 3211;
-            Participant_ID.Name = "Participant_ID";
-            Participant_ID.Width = 85;
+            ParticipantId.HeaderText = "Participant_ID";
+            ParticipantId.MaxInputLength = 3211;
+            ParticipantId.Name = "ParticipantId";
+            ParticipantId.Width = 85;
             // 
-            // FullName
+            // Name
             // 
-            FullName.HeaderText = "Name";
-            FullName.Name = "FullName";
+            Name.HeaderText = "Name";
+            Name.Name = "Name";
             // 
-            // Itec_ID
+            // ItecId
             // 
-            Itec_ID.HeaderText = "Itec_ID";
-            Itec_ID.Name = "Itec_ID";
-            Itec_ID.Width = 50;
+            ItecId.HeaderText = "Itec_ID";
+            ItecId.Name = "ItecId";
+            ItecId.Width = 50;
+            // 
+            // ItecYear
+            // 
+            ItecYear.HeaderText = "ItecYear";
+            ItecYear.Name = "ItecYear";
             // 
             // Email
             // 
@@ -330,11 +302,16 @@
             Institute.HeaderText = "Institute";
             Institute.Name = "Institute";
             // 
-            // Role_ID
+            // RoleId
             // 
-            Role_ID.HeaderText = "Role_ID";
-            Role_ID.Name = "Role_ID";
-            Role_ID.Width = 50;
+            RoleId.HeaderText = "Role_ID";
+            RoleId.Name = "RoleId";
+            RoleId.Width = 50;
+            // 
+            // RoleName
+            // 
+            RoleName.HeaderText = "Role";
+            RoleName.Name = "RoleName";
             // 
             // ParticipantsUC
             // 
@@ -342,7 +319,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(MainPanel);
             Controls.Add(panel1);
-            Name = "ParticipantsUC";
             Size = new Size(982, 544);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -364,7 +340,6 @@
         private Label label6;
         private Label label5;
         private Label label4;
-        private Label label3;
         private TextBox Contacttxt;
         private TextBox Emailtxt;
         private TextBox Nametxt;
@@ -375,14 +350,16 @@
         private Button DeleteBtn;
         private Button AddBtn;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Participant_ID;
-        private DataGridViewTextBoxColumn FullName;
-        private DataGridViewTextBoxColumn Itec_ID;
+        private ComboBox cmbRole;
+        private ComboBox cmbItec;
+        private DataGridViewTextBoxColumn ParticipantId;
+        private DataGridViewTextBoxColumn Name;
+        private DataGridViewTextBoxColumn ItecId;
+        private DataGridViewTextBoxColumn ItecYear;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Contact;
         private DataGridViewTextBoxColumn Institute;
-        private DataGridViewTextBoxColumn Role_ID;
-        private ComboBox cmbRole;
-        private ComboBox cmbItec;
+        private DataGridViewTextBoxColumn RoleId;
+        private DataGridViewTextBoxColumn RoleName;
     }
 }

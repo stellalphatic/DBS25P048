@@ -21,34 +21,24 @@ namespace Itec.Controls
             InitializeComponent();
             LoadParticipants();
             PopulateComboboxes();
+
+            // Attach the event handler
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
         }
 
         //Loading participants to grid
+
         private void LoadParticipants()
         {
             try
             {
                 var participants = ParticipantsDL.GetAllParticipants();
-                //dataGridView1.DataSource = participants;
+                dataGridView1.DataSource = participants;
 
-
-                dataGridView1.Rows.Clear();
-
-                //Adding rows to grid
-                foreach (var participant in participants)
-                {
-                    dataGridView1.Rows.Add(
-                        participant.ParticipantId,
-                        participant.Name,
-                        participant.ItecId,
-                        participant.Email,
-                        participant.Contact,
-                        participant.Institute,
-                        participant.RoleId
-                    );
-                }
-
-
+                // Hide unnecessary columns
+                dataGridView1.Columns["ParticipantId"].Visible = false;
+                dataGridView1.Columns["RoleId"].Visible = false;
+                dataGridView1.Columns["ItecId"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -61,7 +51,7 @@ namespace Itec.Controls
         {
             if (string.IsNullOrWhiteSpace(Nametxt.Text) || string.IsNullOrWhiteSpace(Emailtxt.Text))
             {
-                MessageBox.Show("Name and Email are required!");
+                MessageBox.Show("Name and Email are required");
                 return;
             }
 
@@ -93,8 +83,14 @@ namespace Itec.Controls
 
             if (dataGridView1.SelectedRows.Count == 0) return;
 
+            var selected = (Participant)dataGridView1.SelectedRows[0].DataBoundItem;
+            Nametxt.Text = selected.Name;
+            Emailtxt.Text = selected.Email;
+            Contacttxt.Text = selected.Contact;
+            Institutetxt.Text = selected.Institute;
+
             var selectedRow = dataGridView1.SelectedRows[0];
-            int participantId = Convert.ToInt32(selectedRow.Cells["Participant_Id"].Value);
+            int participantId = Convert.ToInt32(selectedRow.Cells["ParticipantId"].Value);
 
             var updatedParticipant = new Participant
             {
@@ -124,7 +120,7 @@ namespace Itec.Controls
             if (dataGridView1.SelectedRows.Count == 0) return;
 
             var selectedRow = dataGridView1.SelectedRows[0];
-            int participantId = Convert.ToInt32(selectedRow.Cells["Participant_Id"].Value);
+            int participantId = Convert.ToInt32(selectedRow.Cells["ParticipantId"].Value);
 
             if (MessageBox.Show("Delete this participant?", "Confirm",
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -144,13 +140,32 @@ namespace Itec.Controls
         //Showing selected date from grid to textboxes
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            try
             {
-                var selected = (Participant)dataGridView1.SelectedRows[0].DataBoundItem;
-                Nametxt.Text = selected.Name;
-                Emailtxt.Text = selected.Email;
-                Contacttxt.Text = selected.Contact;
-                Institutetxt.Text = selected.Institute;
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var selected = dataGridView1.SelectedRows[0].DataBoundItem as Participant;
+
+                    if (selected == null)
+                    {
+                        MessageBox.Show("Selected row does not contain valid participant data.");
+                        return;
+                    }
+
+                    // Populate the fields
+                    Nametxt.Text = selected.Name;
+                    Emailtxt.Text = selected.Email;
+                    Contacttxt.Text = selected.Contact;
+                    Institutetxt.Text = selected.Institute;
+
+                    // Set combobox values
+                    cmbItec.SelectedValue = selected.ItecId;
+                    cmbRole.SelectedValue = selected.RoleId;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error in selection change: {ex.Message}");
             }
         }
 
